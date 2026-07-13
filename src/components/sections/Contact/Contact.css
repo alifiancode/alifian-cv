@@ -1,0 +1,118 @@
+.contact {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.contact__glow {
+  position: absolute;
+  width: 560px; height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.contact__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact .section-label { text-align: center; }
+.contact .section-label::before { content: ''; }
+
+.contact__terminal {
+  background: var(--bg);
+  border: 1px solid var(--border-active);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: left;
+  margin: 24px 0 32px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.5);
+  opacity: 0;
+  transform: scaleY(0.7) scaleX(0.94);
+  transform-origin: center top;
+  transition: opacity .5s var(--ease), transform .55s var(--ease);
+}
+.contact__terminal.is-visible {
+  opacity: 1;
+  transform: scaleY(1) scaleX(1);
+  transition-delay: .18s;
+}
+
+.contact__titlebar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 16px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.contact__filename {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0 auto;
+  transform: translateX(-16px);
+}
+
+.contact__body {
+  padding: 22px 22px 26px;
+}
+
+.contact__line {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.contact__prompt {
+  color: var(--green);
+  margin-right: 8px;
+}
+
+.contact__output {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+  padding-left: 18px;
+}
+
+.contact__output--accent {
+  color: var(--text-bright);
+}
+
+.contact__cursor {
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  background: var(--accent);
+  margin-left: 6px;
+  vertical-align: text-bottom;
+  animation: blink-cursor 1s step-end infinite;
+}
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.contact__actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .contact__actions { flex-direction: column; }
+  .contact__actions .btn { width: 100%; }
+  .contact__line, .contact__output { font-size: 0.78rem; }
+}
