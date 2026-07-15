@@ -35,7 +35,7 @@ function Stat({ target, suffix, label }) {
 
 export default function Hero() {
   const role = useTypewriter(ROLES, 80, 2200)
-  const [headline, headlineDone] = useTypeOnce('Welcome to my portfolio.', 48, 500)
+  const [headline, headlineDone] = useTypeOnce('Welcome to my CV.', 48, 500)
 
   return (
     <section className="hero" id="hero">
@@ -96,7 +96,7 @@ export default function Hero() {
           <div className="hero__code">
             <div className="hero__gutter" aria-hidden="true">
               <span>1</span><span>2</span><span>3</span><span>4</span>
-              <span>5</span><span>6</span><span>7</span><span>8</span>
+              <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
             </div>
 
             <div className="hero__lines">
@@ -105,6 +105,9 @@ export default function Hero() {
               </div>
               <div className="hero__line hero__line--indent">
                 <span className="syn-property">name</span><span className="syn-punct">:</span> <span className="syn-string">'{config.name}'</span><span className="syn-punct">,</span>
+              </div>
+              <div className="hero__line hero__line--indent">
+                <span className="syn-property">age</span><span className="syn-punct">:</span> <span className="syn-number">18</span><span className="syn-punct">,</span>
               </div>
               <div className="hero__line hero__line--indent">
                 <span className="syn-property">role</span><span className="syn-punct">:</span> <span className="syn-string">'{role}'</span><span className="syn-punct">,</span>

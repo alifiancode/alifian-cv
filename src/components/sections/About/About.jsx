@@ -27,10 +27,11 @@ export default function About() {
 
             <div className="about__content">
               <p className="about__bio">
-                I'm <strong>{config.name}</strong>, a self-taught web developer
-                originally based in {config.location}. My journey into
-                coding started from pure curiosity, and that curiosity turned
-                into a genuine passion for building things on the web.
+                I'm <strong>{config.name}</strong>, an 18-year-old fresh graduate
+                and self-taught web developer originally based in {config.location}.
+                My journey into coding started from pure curiosity, and that
+                curiosity turned into a genuine passion for building things
+                on the web.
               </p>
               <p className="about__bio">
                 Through the <strong>Mimo</strong> platform, I've earned
@@ -73,6 +74,11 @@ export default function About() {
                 <span>stats.json</span>
               </div>
               <div className="about__stat-body">
+                <div className="about__stat-row">
+                  <span className="syn-property">age</span>
+                  <span className="syn-punct">:</span>
+                  <span className="syn-number about__stat-value">18</span>
+                </div>
                 <div className="about__stat-row">
                   <span className="syn-property">certificates</span>
                   <span className="syn-punct">:</span>
