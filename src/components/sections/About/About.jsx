@@ -45,7 +45,7 @@ export default function About() {
                 anywhere in the world.
               </p>
               <p className="about__bio">
-                I'm fully fluent in <strong>English</strong> for both daily
+                I'm confident using <strong>English</strong> for both daily
                 communication and technical work, and I'm ready to relocate to
                 <strong> any country</strong>, based entirely on what the
                 opportunity and the company need.
@@ -54,7 +54,7 @@ export default function About() {
               <ul className="about__highlights">
                 {[
                   { icon: 'globe', text: 'Open to relocation, worldwide' },
-                  { icon: 'search', text: 'Fluent in English' },
+                  { icon: 'search', text: 'Intermediate in English' },
                   { icon: 'award', text: 'Self-taught · Mimo Certified' },
                   { icon: 'map-pin', text: `Currently in ${config.location}` },
                 ].map(({ icon, text }) => (
