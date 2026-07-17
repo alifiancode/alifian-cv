@@ -254,6 +254,59 @@
   transition: opacity .25s ease;
 }
 
+.cm__tap-card {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 340px;
+  padding: 40px 24px;
+  cursor: pointer;
+  background: #f9fafb;
+  text-align: center;
+}
+.cm__tap-card:active {
+  background: #f1f2f4;
+}
+
+.cm__tap-icon {
+  font-size: 2.6rem;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+.cm__tap-title {
+  font-family: var(--font-mono);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.cm__tap-sub {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.cm__tap-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #1a1a1a;
+  padding: 12px 22px;
+  border-radius: 8px;
+  min-height: 44px;
+}
+
 .cm__fallback {
   text-align: center;
   font-family: var(--font-mono);

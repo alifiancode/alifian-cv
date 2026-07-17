@@ -5,6 +5,10 @@ import './CertModal.css'
 export default function CertModal({ cert, onClose }) {
   const [closing, setClosing] = useState(false)
   const [pdfLoaded, setPdfLoaded] = useState(false)
+  const [isTouch] = useState(() =>
+    typeof window !== 'undefined' &&
+    window.matchMedia('(hover: none) and (pointer: coarse)').matches
+  )
   const pdfUrl = `${import.meta.env.BASE_URL}certificates/${cert.pdfFile}`
   const downloadName = `Alifian-Putra-Wijaya-${cert.name.replace(/\s+/g, '-')}-Certificate.pdf`
 
@@ -107,22 +111,46 @@ export default function CertModal({ cert, onClose }) {
         </div>
 
         <div className="cm__body">
-          {!pdfLoaded && (
-            <div className="cm__loading" aria-hidden="true">
-              <span className="cm__spinner" />
-              <span className="cm__loading-text">Loading certificate&hellip;</span>
-            </div>
+          {isTouch ? (
+            <a
+              href={pdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cm__tap-card"
+            >
+              <Icon name="file" className="cm__tap-icon" />
+              <span className="cm__tap-title">Tap to view certificate</span>
+              <span className="cm__tap-sub">Opens {cert.name}{cert.ext} in a new tab</span>
+              <span className="cm__tap-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                Open Certificate
+              </span>
+            </a>
+          ) : (
+            <>
+              {!pdfLoaded && (
+                <div className="cm__loading" aria-hidden="true">
+                  <span className="cm__spinner" />
+                  <span className="cm__loading-text">Loading certificate&hellip;</span>
+                </div>
+              )}
+              <iframe
+                src={pdfUrl}
+                title={`${cert.name} Certificate`}
+                className="cm__pdf"
+                onLoad={() => setPdfLoaded(true)}
+                style={{ opacity: pdfLoaded ? 1 : 0 }}
+              />
+              <p className="cm__fallback">
+                Preview not loading? <a href={pdfUrl} target="_blank" rel="noopener noreferrer">Open the PDF directly</a>.
+              </p>
+            </>
           )}
-          <iframe
-            src={pdfUrl}
-            title={`${cert.name} Certificate`}
-            className="cm__pdf"
-            onLoad={() => setPdfLoaded(true)}
-            style={{ opacity: pdfLoaded ? 1 : 0 }}
-          />
-          <p className="cm__fallback">
-            Preview not loading? <a href={pdfUrl} target="_blank" rel="noopener noreferrer">Open the PDF directly</a>.
-          </p>
         </div>
       </div>
     </div>
