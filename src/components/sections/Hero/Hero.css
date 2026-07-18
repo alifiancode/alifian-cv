@@ -321,7 +321,7 @@
 
 @media (max-width: 960px) {
   .hero__top { flex-direction: column; gap: 0; }
-  .hero__avatar { width: 112px; height: 112px; margin-bottom: 24px; align-self: center; }
+  .hero__avatar { width: 112px; height: 112px; margin-bottom: 24px; }
 }
 
 @media (max-width: 900px) {
