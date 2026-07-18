@@ -43,6 +43,7 @@ export default function Hero() {
       <div className="hero__vignette" aria-hidden="true" />
 
       <div className="container hero__content">
+        <div className="hero__top">
         <div className="hero__avatar">
           <img
             src={`${import.meta.env.BASE_URL}${config.photo}`}
@@ -92,6 +93,8 @@ export default function Hero() {
             </svg>
             Get In Touch
           </a>
+        </div>
+        </div>
         </div>
 
         <div className={`hero__window scanlines${headlineDone ? ' is-visible' : ''}`}>
@@ -144,7 +147,6 @@ export default function Hero() {
 
         <div className="hero__stats">
           {STATS.map(stat => <Stat key={stat.label} {...stat} />)}
-        </div>
         </div>
       </div>
     </section>
