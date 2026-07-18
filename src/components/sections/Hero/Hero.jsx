@@ -53,6 +53,7 @@ export default function Hero() {
           />
         </div>
 
+        <div className="hero__main">
         <div className="hero__badge">
           <span className="hero__badge-dot" />
           Available for work &nbsp;&middot;&nbsp; Open worldwide
@@ -143,6 +144,7 @@ export default function Hero() {
 
         <div className="hero__stats">
           {STATS.map(stat => <Stat key={stat.label} {...stat} />)}
+        </div>
         </div>
       </div>
     </section>
