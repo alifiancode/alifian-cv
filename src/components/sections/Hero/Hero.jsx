@@ -57,13 +57,16 @@ export default function Hero() {
         <div className="hero__main">
         <div className="hero__badge">
           <span className="hero__badge-dot" />
-          Available for work &nbsp;&middot;&nbsp; Open worldwide
+          Available for work
+          <span className="hero__badge-extra">&nbsp;&middot;&nbsp; Open worldwide</span>
         </div>
 
         <h1 className="hero__headline">
           <span className="hero__prompt">&gt;</span> {headline}
           {!headlineDone && <span className="hero__cursor" aria-hidden="true" />}
         </h1>
+        </div>
+        </div>
 
         <p className={`hero__subtitle${headlineDone ? ' is-visible' : ''}`}>
           Hi, I'm {config.name}, a {role}
@@ -93,8 +96,6 @@ export default function Hero() {
             </svg>
             Get In Touch
           </a>
-        </div>
-        </div>
         </div>
 
         <div className={`hero__window scanlines${headlineDone ? ' is-visible' : ''}`}>
