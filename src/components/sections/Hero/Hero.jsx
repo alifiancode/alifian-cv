@@ -43,6 +43,16 @@ export default function Hero() {
       <div className="hero__vignette" aria-hidden="true" />
 
       <div className="container hero__content">
+        <div className="hero__avatar">
+          <img
+            src={`${import.meta.env.BASE_URL}${config.photo}`}
+            alt={`Photo of ${config.name}`}
+            className="hero__avatar-img"
+            width="112"
+            height="112"
+          />
+        </div>
+
         <div className="hero__badge">
           <span className="hero__badge-dot" />
           Available for work &nbsp;&middot;&nbsp; Open worldwide

@@ -7,4 +7,5 @@ export const config = {
   github:    'https://github.com/alifiancode',
   linkedin:  '',
   cvUrl:     '#',
+  photo:     'profile.webp',
 }
