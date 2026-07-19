@@ -52,7 +52,6 @@
   width: clamp(90px, 24vw, 260px);
   height: clamp(90px, 24vw, 260px);
   aspect-ratio: 1 / 1;
-  margin-bottom: 24px;
   border-radius: 50%;
   flex-shrink: 0;
   animation: float-y 7s ease-in-out infinite;
