@@ -5,7 +5,7 @@
 
 .skills__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
@@ -28,6 +28,8 @@
 .skills__grid.is-visible .skills__file:nth-child(2) { transition-delay: .15s; }
 .skills__grid.is-visible .skills__file:nth-child(3) { transition-delay: .25s; }
 .skills__grid.is-visible .skills__file:nth-child(4) { transition-delay: .35s; }
+.skills__grid.is-visible .skills__file:nth-child(5) { transition-delay: .45s; }
+.skills__grid.is-visible .skills__file:nth-child(6) { transition-delay: .55s; }
 
 .skills__file:hover {
   border-color: var(--border-active);
