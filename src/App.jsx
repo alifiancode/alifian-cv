@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import AnnouncementBar from './components/layout/AnnouncementBar/AnnouncementBar'
 import Navbar from './components/layout/Navbar/Navbar'
 import Sidebar from './components/layout/Sidebar/Sidebar'
 import Footer from './components/layout/Footer/Footer'
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className="app">
+      <AnnouncementBar />
       <ScrollProgress />
       <Navbar onToggleSidebar={() => setSidebarOpen(v => !v)} />
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />

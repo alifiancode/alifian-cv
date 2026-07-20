@@ -1,6 +1,6 @@
 .scroll-progress {
   position: fixed;
-  top: 0;
+  top: var(--announce-h, 0px);
   left: 0;
   right: 0;
   height: 2px;
