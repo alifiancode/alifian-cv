@@ -10,6 +10,7 @@ import SkillCerts from './components/sections/SkillCerts/SkillCerts'
 import Contact from './components/sections/Contact/Contact'
 import Marquee from './components/effects/Marquee/Marquee'
 import ScrollProgress from './components/effects/ScrollProgress/ScrollProgress'
+import Commentary from './components/effects/Commentary/Commentary'
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -19,6 +20,7 @@ function App() {
       <ScrollProgress />
       <Navbar onToggleSidebar={() => setSidebarOpen(v => !v)} />
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Commentary />
       <main>
         <Hero />
         <Marquee />

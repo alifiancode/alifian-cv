@@ -1,0 +1,192 @@
+.commentary {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 180;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.commentary__toggle {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 100px;
+  border: 1px solid var(--border-active);
+  background: var(--surface);
+  color: var(--text-bright);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s var(--ease);
+}
+.commentary__toggle svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+.commentary__toggle:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+  box-shadow: 0 0 24px var(--accent-glow);
+  transform: translateY(-2px);
+}
+.commentary__toggle:active {
+  transform: scale(0.96);
+}
+.commentary__toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.commentary__ping {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+.commentary__ping::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid var(--green);
+  animation: radar-ping 2.4s ease-out infinite;
+}
+
+.commentary__panel {
+  width: min(360px, calc(100vw - 40px));
+  background: var(--surface);
+  border: 1px solid var(--border-active);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  animation: commentaryIn 0.3s var(--ease);
+}
+@keyframes commentaryIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.commentary__titlebar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 16px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.commentary__titlebar .tl--red {
+  all: unset;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #FF5F57;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.commentary__titlebar .tl--red:hover { filter: brightness(1.2); }
+.commentary__titlebar .tl--red:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.commentary__filename {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0 auto;
+  min-width: 0;
+  transform: translateX(-16px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.commentary__spacer {
+  width: 53px;
+  flex-shrink: 0;
+}
+
+.commentary__body {
+  padding: 16px 18px 6px;
+  min-height: 132px;
+}
+
+.commentary__eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.commentary__eyebrow::before {
+  content: '// ';
+  color: var(--text-subtle);
+  font-style: normal;
+}
+
+.commentary__text {
+  font-size: 0.84rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.commentary__dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px 16px;
+}
+
+.commentary__dot {
+  all: unset;
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-active);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+.commentary__dot:hover { background: var(--text-muted); }
+.commentary__dot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.commentary__dot--active {
+  width: 20px;
+  border-radius: 4px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+@media (max-width: 640px) {
+  .commentary {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+  .commentary__panel { width: 100%; }
+  .commentary__toggle {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .commentary__panel { animation: none; }
+}

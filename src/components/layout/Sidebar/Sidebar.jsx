@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { scrollToSection } from '../../../utils/scrollTo'
+import { useActiveSection } from '../../../hooks/useActiveSection'
 import Icon from '../../ui/Icon/Icon'
 import './Sidebar.css'
 
@@ -10,25 +11,10 @@ const SECTIONS = [
   { id: 'certificates', label: 'certificates.jsx' },
   { id: 'contact', label: 'contact.jsx' },
 ]
+const SECTION_IDS = SECTIONS.map((section) => section.id)
 
 export default function Sidebar({ isOpen, onClose }) {
-  const [active, setActive] = useState('hero')
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id)
-        })
-      },
-      { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
-    )
-    SECTIONS.forEach(({ id }) => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    })
-    return () => observer.disconnect()
-  }, [])
+  const active = useActiveSection(SECTION_IDS)
 
   useEffect(() => {
     if (!isOpen) return

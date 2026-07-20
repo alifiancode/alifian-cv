@@ -11,7 +11,7 @@ export default function SkillCerts() {
   const [ref, visible] = useReveal()
 
   return (
-    <section className="skill-certs" ref={ref}>
+    <section className="skill-certs" id="skill-certs" ref={ref}>
       <div className="container">
         <p className={`section-label reveal${visible ? ' is-visible' : ''}`}>Mimo Skill Certificates</p>
         <TypeTitle text="Individual Skills Earned" active={visible} />
