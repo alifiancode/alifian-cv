@@ -54,14 +54,26 @@ export default function Commentary() {
             <button
               className="tl tl--red"
               onClick={() => setOpen(false)}
-              aria-label="Collapse commentary"
+              aria-label="Close commentary"
               type="button"
             />
             <span className="tl tl--yellow" />
             <span className="tl tl--green" />
           </div>
           <span className="commentary__filename">{active.file}</span>
-          <span className="commentary__spacer" />
+          <button
+            className="commentary__close"
+            onClick={() => setOpen(false)}
+            aria-label="Close commentary"
+            type="button"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+            <span>Close</span>
+          </button>
         </div>
 
         <div className="commentary__body">
