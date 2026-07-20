@@ -20,7 +20,7 @@ function App() {
       <ScrollProgress />
       <Navbar onToggleSidebar={() => setSidebarOpen(v => !v)} />
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <Commentary />
+      <Commentary hidden={sidebarOpen} />
       <main>
         <Hero />
         <Marquee />

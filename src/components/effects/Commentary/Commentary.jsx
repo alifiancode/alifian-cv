@@ -16,7 +16,7 @@ function readStoredOpen() {
   return stored === 'true'
 }
 
-export default function Commentary() {
+export default function Commentary({ hidden = false }) {
   const [open, setOpen] = useState(readStoredOpen)
   const [everOpened, setEverOpened] = useState(open)
   const activeId = useActiveSection(SECTION_IDS)
@@ -27,6 +27,8 @@ export default function Commentary() {
     window.localStorage.setItem(STORAGE_KEY, String(open))
     if (open) setEverOpened(true)
   }, [open])
+
+  if (hidden) return null
 
   if (!open) {
     return (
