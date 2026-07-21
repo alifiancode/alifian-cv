@@ -67,6 +67,8 @@
 }
 
 .navbar__hire {
+  all: unset;
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -81,6 +83,7 @@
   flex-shrink: 0;
   height: 44px;
   margin-left: auto;
+  cursor: pointer;
   transition: all .2s var(--ease);
 }
 .navbar__hire svg { width: 16px; height: 16px; flex-shrink: 0; }
@@ -91,6 +94,10 @@
 }
 .navbar__hire:active {
   transform: translateY(0) scale(.94);
+}
+.navbar__hire:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 @media (max-width: 680px) {

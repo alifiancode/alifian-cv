@@ -33,10 +33,14 @@ export default function Navbar({ onToggleSidebar }) {
 
         <span className="navbar__path">alifiancode/alifian-cv</span>
 
-        <a href={`mailto:${config.email}`} className="navbar__hire">
+        <button
+          type="button"
+          className="navbar__hire"
+          onClick={() => { window.location.href = `mailto:${config.email}` }}
+        >
           <Icon name="mail" />
           <span>Hire Me</span>
-        </a>
+        </button>
       </div>
     </header>
   )
