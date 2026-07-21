@@ -1,5 +1,6 @@
 import { config } from '../../../data/config'
 import { useReveal } from '../../../hooks/useReveal'
+import Icon from '../../ui/Icon/Icon'
 import TypeTitle from '../../ui/TypeTitle/TypeTitle'
 import './Contact.css'
 
@@ -52,6 +53,17 @@ export default function Contact() {
               <polyline points="22,6 12,13 2,6"/>
             </svg>
             Send Me an Email
+          </a>
+
+          <a
+            href={config.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--ghost"
+            title={`WhatsApp: ${config.phone}`}
+          >
+            <Icon name="message" />
+            Chat on WhatsApp
           </a>
 
           <a
