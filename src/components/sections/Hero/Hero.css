@@ -334,9 +334,18 @@
 
 @media (max-width: 480px) {
   .hero { padding-top: calc(96px + var(--announce-h, 0px)); padding-bottom: 64px; }
-  .hero__badge { font-size: 0.68rem; padding: 5px 10px; }
+  .hero__badge {
+    font-size: 0.68rem;
+    padding: 4px 9px;
+    margin-bottom: 14px;
+    letter-spacing: .01em;
+    gap: 6px;
+  }
   .hero__badge-extra { display: none; }
-  .hero__headline { font-size: clamp(1.1rem, 5vw, 2rem); }
+  .hero__headline {
+    font-size: clamp(1.65rem, 7.5vw, 2.3rem);
+    line-height: 1.12;
+  }
   .hero__window { border-radius: 8px; }
   .hero__code { padding: 16px 0; }
   .hero__lines { padding-left: 14px; padding-right: 12px; }

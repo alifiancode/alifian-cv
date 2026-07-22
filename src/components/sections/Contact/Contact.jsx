@@ -36,7 +36,7 @@ export default function Contact() {
               <span className="contact__prompt">$</span> cat status.txt
             </p>
             <p className="contact__output contact__output--accent">
-              Open to full-time roles, internships, and freelance projects
+              Open to full-time, part-time, freelance, contract, or internship work
             </p>
 
             <p className="contact__line">

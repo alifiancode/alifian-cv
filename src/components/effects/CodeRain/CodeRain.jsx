@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const CHARS = '01アイウエオカキクケコサシスセソタチツテト+-*/<>[]{}=;:'.split('')
+const CHARS = '0123456789+-*/<>[]{}=;:'.split('')
 
 export default function CodeRain() {
   const canvasRef = useRef(null)

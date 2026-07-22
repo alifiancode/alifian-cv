@@ -131,7 +131,7 @@ export default function Hero() {
                 <span className="syn-property">location</span><span className="syn-punct">:</span> <span className="syn-string">'{config.location}'</span><span className="syn-punct">,</span>
               </div>
               <div className="hero__line hero__line--indent">
-                <span className="syn-property">openTo</span><span className="syn-punct">:</span> <span className="syn-punct">[</span><span className="syn-string">'full-time'</span><span className="syn-punct">,</span> <span className="syn-string">'internship'</span><span className="syn-punct">,</span> <span className="syn-string">'relocation'</span><span className="syn-punct">],</span>
+                <span className="syn-property">openTo</span><span className="syn-punct">:</span> <span className="syn-punct">[</span><span className="syn-string">'full-time'</span><span className="syn-punct">,</span> <span className="syn-string">'part-time'</span><span className="syn-punct">,</span> <span className="syn-string">'freelance'</span><span className="syn-punct">,</span> <span className="syn-string">'contract'</span><span className="syn-punct">,</span> <span className="syn-string">'internship'</span><span className="syn-punct">,</span> <span className="syn-string">'relocation'</span><span className="syn-punct">],</span>
               </div>
               <div className="hero__line hero__line--indent">
                 <span className="syn-property">languages</span><span className="syn-punct">:</span> <span className="syn-punct">[</span><span className="syn-string">'Indonesian'</span><span className="syn-punct">,</span> <span className="syn-string">'English'</span><span className="syn-punct">],</span>

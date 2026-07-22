@@ -12,7 +12,7 @@ export const commentaryEntries = [
   {
     id: 'skills',
     file: 'skills.jsx',
-    text: "Every card here renders like an actual source file because that's closer to how I think about my own skills, typed, categorized, and grouped by what they're for instead of dumped into one long tag cloud. Python & AI is the newest folder here; Frontend is where I've logged the most hours.",
+    text: "Every card here renders like an actual source file because that's closer to how I think about my own skills, typed, categorized, and grouped by what they're for instead of dumped into one long tag cloud. Python & AI is the newest folder here Frontend is where I've logged the most hours.",
   },
   {
     id: 'certificates',
@@ -27,6 +27,6 @@ export const commentaryEntries = [
   {
     id: 'contact',
     file: 'contact.sh',
-    text: "There's no contact form here on purpose, I'd rather you reach me directly than fill out something that disappears into a spreadsheet. My number's written out below if you'd rather just call or text; email, WhatsApp, and GitHub are right there too. Short version of this entire site: fresh graduate, self-taught, open to relocating anywhere, and actively looking for my first role.",
+    text: "There's no contact form here on purpose, I'd rather you reach me directly than fill out something that disappears into a spreadsheet. My number's written out below if you'd rather just call or text email, WhatsApp, and GitHub are right there too. Short version of this entire site: fresh graduate, self-taught, open to any kind of work and ready to relocate anywhere, actively looking for my first role.",
   },
 ]

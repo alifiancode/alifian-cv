@@ -48,14 +48,15 @@ export default function About() {
               </p>
               <p className="about__bio">
                 I'm now actively seeking my <strong>first role as a web developer</strong>,
-                ready to bring clean code, dedication, and a growth mindset to any team,
-                anywhere in the world.
+                whether full-time, part-time, freelance, or contract, ready to bring
+                clean code, dedication, and a growth mindset to any team, anywhere
+                in the world.
               </p>
               <p className="about__bio">
                 My spoken <strong>English</strong> is intermediate, though I
                 follow native speakers and technical conversations with ease.
                 I'm ready to relocate to
-                <strong> any country</strong>, based entirely on what the
+                <strong> any city, region, or country</strong>, based entirely on what the
                 opportunity and the company need.
               </p>
 
