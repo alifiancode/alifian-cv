@@ -66,7 +66,7 @@ export default function About() {
                   { icon: 'message', text: 'Intermediate English, good ear' },
                   { icon: 'award', text: 'Self-taught · Mimo Certified' },
                   { icon: 'map-pin', text: `Currently in ${config.location}` },
-                  { icon: 'graduation-cap', text: 'SMK 17 Agustus 1945 · Software Eng.' },
+                  { icon: 'graduation-cap', text: 'SMK 17 Agustus 1945 · Software Engineering' },
                 ].map(({ icon, text }) => (
                   <li key={text} className="about__highlight">
                     <span className="about__highlight-icon"><Icon name={icon} /></span>
