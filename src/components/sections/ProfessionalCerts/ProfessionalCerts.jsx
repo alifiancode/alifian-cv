@@ -84,12 +84,13 @@ export default function ProfessionalCerts() {
                     View certificate
                   </span>
 
-                  <a
-                    href={cert.verifyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    type="button"
                     className="cert-card__verify"
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      window.open(cert.verifyUrl, '_blank', 'noopener,noreferrer')
+                    }}
                   >
                     <span className="syn-punct">$</span> verify
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
@@ -97,7 +98,7 @@ export default function ProfessionalCerts() {
                       strokeLinejoin="round" aria-hidden="true">
                       <path d="M7 17L17 7M17 7H7M17 7v10"/>
                     </svg>
-                  </a>
+                  </button>
                 </div>
               </div>
             </article>

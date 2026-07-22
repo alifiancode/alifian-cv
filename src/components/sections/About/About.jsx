@@ -34,6 +34,13 @@ export default function About() {
                 on the web.
               </p>
               <p className="about__bio">
+                Formally, I'm finishing my final year at{' '}
+                <strong>SMK 17 Agustus 1945 Surabaya</strong>, a vocational
+                high school here in Surabaya, majoring in{' '}
+                <strong>Software Engineering (Rekayasa Perangkat Lunak)</strong>,
+                with graduation set for 2026.
+              </p>
+              <p className="about__bio">
                 Through the <strong>Mimo</strong> platform, I've earned
                 professional certifications in Front-End, Back-End, Full-Stack,
                 and Python Development, plus eight individual skill certificates.
@@ -58,6 +65,7 @@ export default function About() {
                   { icon: 'message', text: 'Intermediate English, good ear' },
                   { icon: 'award', text: 'Self-taught · Mimo Certified' },
                   { icon: 'map-pin', text: `Currently in ${config.location}` },
+                  { icon: 'graduation-cap', text: 'SMK 17 Agustus 1945 · Software Eng.' },
                 ].map(({ icon, text }) => (
                   <li key={text} className="about__highlight">
                     <span className="about__highlight-icon"><Icon name={icon} /></span>

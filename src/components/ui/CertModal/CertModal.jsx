@@ -2,6 +2,16 @@ import { useEffect, useState, useCallback } from 'react'
 import Icon from '../Icon/Icon'
 import './CertModal.css'
 
+function triggerDownload(url, filename) {
+  const link = document.createElement('a')
+  link.href = url
+  link.download = filename
+  link.rel = 'noopener'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
+
 export default function CertModal({ cert, onClose }) {
   const [closing, setClosing] = useState(false)
   const [pdfLoaded, setPdfLoaded] = useState(false)
@@ -64,12 +74,10 @@ export default function CertModal({ cert, onClose }) {
           <span className="cm__meta">Mimo Certificate &middot; {cert.date}</span>
 
           <div className="cm__controls">
-            <a
-              href={pdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
               className="cm__btn"
-              title="Open in new tab"
+              onClick={() => window.open(pdfUrl, '_blank', 'noopener,noreferrer')}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -78,13 +86,12 @@ export default function CertModal({ cert, onClose }) {
                 <line x1="10" y1="14" x2="21" y2="3"/>
               </svg>
               <span>Open</span>
-            </a>
+            </button>
 
-            <a
-              href={pdfUrl}
-              download={downloadName}
+            <button
+              type="button"
               className="cm__btn cm__btn--primary"
-              title="Download PDF"
+              onClick={() => triggerDownload(pdfUrl, downloadName)}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -93,7 +100,7 @@ export default function CertModal({ cert, onClose }) {
                 <line x1="12" y1="15" x2="12" y2="3"/>
               </svg>
               <span>Download</span>
-            </a>
+            </button>
 
             <button
               className="cm__close"
@@ -112,11 +119,10 @@ export default function CertModal({ cert, onClose }) {
 
         <div className="cm__body">
           {isTouch ? (
-            <a
-              href={pdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
               className="cm__tap-card"
+              onClick={() => window.open(pdfUrl, '_blank', 'noopener,noreferrer')}
             >
               <Icon name="file" className="cm__tap-icon" />
               <span className="cm__tap-title">Tap to view certificate</span>
@@ -130,7 +136,7 @@ export default function CertModal({ cert, onClose }) {
                 </svg>
                 Open Certificate
               </span>
-            </a>
+            </button>
           ) : (
             <>
               {!pdfLoaded && (
@@ -147,7 +153,14 @@ export default function CertModal({ cert, onClose }) {
                 style={{ opacity: pdfLoaded ? 1 : 0 }}
               />
               <p className="cm__fallback">
-                Preview not loading? <a href={pdfUrl} target="_blank" rel="noopener noreferrer">Open the PDF directly</a>.
+                Preview not loading?{' '}
+                <button
+                  type="button"
+                  className="cm__fallback-link"
+                  onClick={() => window.open(pdfUrl, '_blank', 'noopener,noreferrer')}
+                >
+                  Open the PDF directly
+                </button>.
               </p>
             </>
           )}

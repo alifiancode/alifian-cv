@@ -27,6 +27,6 @@ export const commentaryEntries = [
   {
     id: 'contact',
     file: 'contact.sh',
-    text: "There's no contact form here on purpose, I'd rather you reach me directly by email or GitHub than fill out something that disappears into a spreadsheet. Short version of this entire site: fresh graduate, self-taught, open to relocating anywhere, and actively looking for my first role.",
+    text: "There's no contact form here on purpose, I'd rather you reach me directly than fill out something that disappears into a spreadsheet. My number's written out below if you'd rather just call or text; email, WhatsApp, and GitHub are right there too. Short version of this entire site: fresh graduate, self-taught, open to relocating anywhere, and actively looking for my first role.",
   },
 ]

@@ -31,7 +31,7 @@ export default function Navbar({ onToggleSidebar }) {
           <span className="tl tl--green" />
         </div>
 
-        <span className="navbar__path">alifiancode/alifian-cv</span>
+        <span className="navbar__path">alifiancode/alifian-portfolio</span>
 
         <button
           type="button"

@@ -215,6 +215,8 @@
 }
 
 .cert-card__verify {
+  all: unset;
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -224,6 +226,7 @@
   padding: 4px 9px;
   border: 1px solid var(--border);
   border-radius: 5px;
+  cursor: pointer;
   transition: gap .2s, color .2s, border-color .2s;
   position: relative;
   z-index: 2;
@@ -232,6 +235,10 @@
   gap: 8px;
   color: var(--cert-color);
   border-color: var(--cert-color);
+}
+.cert-card__verify:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 @media (max-width: 860px) {

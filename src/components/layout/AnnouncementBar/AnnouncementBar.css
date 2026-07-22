@@ -54,6 +54,8 @@
 }
 
 .announce__link {
+  all: unset;
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -65,6 +67,7 @@
   white-space: nowrap;
   padding-bottom: 2px;
   border-bottom: 1px solid var(--border-active);
+  cursor: pointer;
   transition: color .2s var(--ease), border-color .2s var(--ease);
 }
 .announce__link svg {

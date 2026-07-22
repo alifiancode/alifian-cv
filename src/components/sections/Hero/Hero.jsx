@@ -35,7 +35,7 @@ function Stat({ target, suffix, label }) {
 
 export default function Hero() {
   const role = useTypewriter(ROLES, 80, 2200)
-  const [headline, headlineDone] = useTypeOnce('Welcome to my CV.', 48, 500)
+  const [headline, headlineDone] = useTypeOnce('Welcome to my Portfolio.', 48, 500)
 
   return (
     <section className="hero" id="hero">
@@ -80,22 +80,22 @@ export default function Hero() {
         </p>
 
         <div className={`hero__actions${headlineDone ? ' is-visible' : ''}`}>
-          <a href="#certificates" onClick={handleSectionLink('certificates')} className="btn btn--primary">
+          <button type="button" onClick={handleSectionLink('certificates')} className="btn btn--primary">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <polyline points="16 18 22 12 16 6" />
               <polyline points="8 6 2 12 8 18" />
             </svg>
             View Certificates
-          </a>
-          <a href="#contact" onClick={handleSectionLink('contact')} className="btn btn--ghost">
+          </button>
+          <button type="button" onClick={handleSectionLink('contact')} className="btn btn--ghost">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <polyline points="4 6 9 12 4 18" />
               <line x1="12" y1="18" x2="20" y2="18" />
             </svg>
             Get In Touch
-          </a>
+          </button>
         </div>
 
         <div className={`hero__window scanlines${headlineDone ? ' is-visible' : ''}`}>

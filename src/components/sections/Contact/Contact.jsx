@@ -6,6 +6,7 @@ import './Contact.css'
 
 export default function Contact() {
   const [ref, visible] = useReveal()
+  const telHref = `tel:${config.phone.replace(/[\s-]/g, '')}`
 
   return (
     <section className="contact" id="contact" ref={ref}>
@@ -39,6 +40,11 @@ export default function Contact() {
             </p>
 
             <p className="contact__line">
+              <span className="contact__prompt">$</span> cat phone.txt
+            </p>
+            <p className="contact__output">{config.phone}</p>
+
+            <p className="contact__line">
               <span className="contact__prompt">$</span> ./get-in-touch
               <span className="contact__cursor" aria-hidden="true" />
             </p>
@@ -62,11 +68,19 @@ export default function Contact() {
           <button
             type="button"
             className="btn btn--ghost"
-            title={`WhatsApp: ${config.phone}`}
             onClick={() => window.open(config.whatsapp, '_blank', 'noopener,noreferrer')}
           >
             <Icon name="message" />
             Chat on WhatsApp
+          </button>
+
+          <button
+            type="button"
+            className="btn btn--ghost"
+            onClick={() => { window.location.href = telHref }}
+          >
+            <Icon name="phone" />
+            Call Me
           </button>
 
           <button

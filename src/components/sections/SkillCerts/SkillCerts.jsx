@@ -47,9 +47,13 @@ export default function SkillCerts() {
 
         <p className="skill-certs__note">
           All certificates issued by{' '}
-          <a href="https://getmimo.com" target="_blank" rel="noopener noreferrer">
+          <button
+            type="button"
+            className="skill-certs__note-link"
+            onClick={() => window.open('https://getmimo.com', '_blank', 'noopener,noreferrer')}
+          >
             Mimo
-          </a>
+          </button>
           {' '}and verified on virtualbadge.io. Tap any file to view the PDF.
         </p>
       </div>
