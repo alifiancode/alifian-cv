@@ -1,0 +1,174 @@
+.mascot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.mascot__svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.mascot__shadow {
+  fill: rgba(0, 0, 0, 0.4);
+}
+
+.mascot__antenna {
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.8;
+}
+
+.mascot__blip {
+  fill: var(--green, #7EE787);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mascotBlipPulse 2.6s ease-in-out infinite;
+}
+.mascot--talking .mascot__blip {
+  animation: mascotBlipPulse 0.6s ease-in-out infinite;
+}
+
+.mascot__body {
+  fill: var(--bg, #000000);
+  stroke: currentColor;
+  stroke-width: 2.5;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.mascot--talking .mascot__body {
+  animation: mascotBodyEnergy 0.5s ease-in-out infinite;
+}
+.mascot--settle .mascot__body {
+  animation: mascotSettle 0.4s var(--ease, ease);
+}
+
+.mascot__foot {
+  fill: currentColor;
+  opacity: 0.9;
+}
+
+.mascot__eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 90ms var(--ease, ease);
+}
+.mascot--blinking .mascot__eye {
+  transform: scaleY(0.12);
+}
+.mascot--booped .mascot__eye {
+  transform: scale(1.25);
+}
+
+.mascot__eye-white {
+  fill: currentColor;
+}
+
+.mascot__eye-pupil {
+  fill: var(--bg, #000000);
+  transition: transform 0.12s ease-out;
+}
+
+.mascot__mouth {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.15s var(--ease, ease);
+}
+.mascot__mouth--idle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 1;
+}
+.mascot__mouth--talk {
+  fill: currentColor;
+  opacity: 0;
+}
+.mascot__mouth--boop {
+  fill: currentColor;
+  opacity: 0;
+}
+
+.mascot--talking .mascot__mouth--idle {
+  opacity: 0;
+}
+.mascot--talking .mascot__mouth--talk {
+  opacity: 1;
+  animation: mascotTalk 0.5s steps(1, end) infinite;
+}
+
+.mascot--booped .mascot__mouth--idle,
+.mascot--booped .mascot__mouth--talk {
+  opacity: 0;
+}
+.mascot--booped .mascot__mouth--boop {
+  opacity: 1;
+}
+
+.mascot--floating {
+  animation: float-y 3.6s ease-in-out infinite;
+}
+
+.mascot--interactive {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+  cursor: pointer;
+}
+.mascot--interactive:hover .mascot__body {
+  filter: brightness(1.15);
+}
+.mascot--interactive:active {
+  transform: scale(0.94);
+}
+.mascot--interactive:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 16px;
+}
+
+@keyframes mascotBlipPulse {
+  0%, 100% { opacity: 0.55; transform: scale(0.85); }
+  50%      { opacity: 1;    transform: scale(1.2); }
+}
+
+@keyframes mascotTalk {
+  0%   { transform: scaleY(0.55) scaleX(1);    }
+  20%  { transform: scaleY(1.3)  scaleX(0.9);   }
+  45%  { transform: scaleY(0.7)  scaleX(1.05);  }
+  70%  { transform: scaleY(1.15) scaleX(0.95);  }
+  100% { transform: scaleY(0.55) scaleX(1);     }
+}
+
+@keyframes mascotBodyEnergy {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.015); }
+}
+
+@keyframes mascotSettle {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.06, 0.94); }
+  70%  { transform: scale(0.98, 1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes mascotBoop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(0.9, 1.12); }
+  55%  { transform: scale(1.08, 0.92); }
+  80%  { transform: scale(0.97, 1.03); }
+  100% { transform: scale(1); }
+}
+.mascot--booped .mascot__body {
+  animation: mascotBoop 0.5s var(--ease, ease);
+}

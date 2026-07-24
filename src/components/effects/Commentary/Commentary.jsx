@@ -3,7 +3,7 @@ import { commentaryEntries } from '../../../data/commentary'
 import { useActiveSection } from '../../../hooks/useActiveSection'
 import { useTypeReveal } from '../../../hooks/useTypeReveal'
 import { scrollToSection } from '../../../utils/scrollTo'
-import Icon from '../../ui/Icon/Icon'
+import Mascot from '../../ui/Mascot/Mascot'
 import './Commentary.css'
 
 const SECTION_IDS = commentaryEntries.map((entry) => entry.id)
@@ -36,11 +36,11 @@ export default function Commentary({ hidden = false }) {
         <button
           className="commentary__toggle"
           onClick={() => setOpen(true)}
-          aria-label="Show section commentary"
+          aria-label="Show section commentary from Bit"
           aria-expanded="false"
           type="button"
         >
-          <Icon name="message" />
+          <Mascot size={34} floating />
           <span>Commentary</span>
           {!everOpened && <span className="commentary__ping" aria-hidden="true" />}
         </button>
@@ -79,11 +79,17 @@ export default function Commentary({ hidden = false }) {
         </div>
 
         <div className="commentary__body">
-          <p className="commentary__eyebrow">notes on this section</p>
-          <p className="commentary__text" aria-label={active.text}>
-            {display}
-            {!done && <span className="type-cursor" aria-hidden="true" />}
-          </p>
+          <div className="commentary__speaker">
+            <Mascot size={44} talking={!done} interactive />
+            <span className="commentary__mascot-name">Bit</span>
+          </div>
+          <div className="commentary__bubble">
+            <p className="commentary__eyebrow">notes on this section</p>
+            <p className="commentary__text" aria-label={active.text}>
+              {display}
+              {!done && <span className="type-cursor" aria-hidden="true" />}
+            </p>
+          </div>
         </div>
 
         <div className="commentary__dots" role="group" aria-label="Jump to section">
