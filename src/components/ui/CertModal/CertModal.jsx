@@ -50,8 +50,6 @@ export default function CertModal({
     if (hasNext) onNext()
   }, [hasNext, onNext])
 
-  // Keep the sticky action bar pinned directly beneath the titlebar, whatever
-  // height the titlebar happens to render at (it can change across breakpoints).
   useLayoutEffect(() => {
     const titlebarEl = titlebarRef.current
     const modalEl = modalRef.current
@@ -67,8 +65,6 @@ export default function CertModal({
     return () => observer.disconnect()
   }, [])
 
-  // Snap back to the top of the modal whenever we switch to a different certificate,
-  // so Previous/Next always lands somewhere predictable instead of mid-scroll.
   useLayoutEffect(() => {
     if (modalRef.current) modalRef.current.scrollTop = 0
   }, [cert.pdfFile])
@@ -101,8 +97,6 @@ export default function CertModal({
 
     const dx = touch.clientX - start.x
     const dy = touch.clientY - start.y
-    // Require a deliberate, mostly-horizontal drag so vertical scrolling
-    // through the explainer text or PDF is never mistaken for a swipe.
     if (Math.abs(dx) < 55 || Math.abs(dx) < Math.abs(dy) * 1.4) return
 
     if (dx > 0) handlePrev()

@@ -18,9 +18,11 @@
 }
 
 .mascot__antenna {
+  fill: none;
   stroke: currentColor;
   stroke-width: 3;
   stroke-linecap: round;
+  stroke-linejoin: round;
   opacity: 0.8;
 }
 
@@ -48,6 +50,48 @@
   animation: mascotSettle 0.4s var(--ease, ease);
 }
 
+.mascot__notch {
+  fill: var(--bg, #000000);
+}
+
+.mascot__trace {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  opacity: 0.3;
+}
+
+.mascot__node {
+  fill: currentColor;
+  opacity: 0.4;
+}
+
+.mascot__pin {
+  fill: currentColor;
+  opacity: 0.85;
+}
+
+.mascot__highlight {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: 0.15;
+}
+
+.mascot__visor {
+  fill: var(--green, #7EE787);
+  fill-opacity: 0.08;
+  stroke: var(--green, #7EE787);
+  stroke-opacity: 0.4;
+  stroke-width: 1;
+  transition: fill-opacity 0.2s var(--ease, ease), stroke-opacity 0.2s var(--ease, ease);
+}
+.mascot--talking .mascot__visor {
+  animation: mascotVisorScan 1s ease-in-out infinite;
+}
+
 .mascot__foot {
   fill: currentColor;
   opacity: 0.9;
@@ -72,6 +116,15 @@
 .mascot__eye-pupil {
   fill: var(--bg, #000000);
   transition: transform 0.12s ease-out;
+}
+
+.mascot__cheek {
+  fill: var(--green, #7EE787);
+  opacity: 0;
+  transition: opacity 0.2s var(--ease, ease);
+}
+.mascot--booped .mascot__cheek {
+  opacity: 0.55;
 }
 
 .mascot__mouth {
@@ -140,6 +193,11 @@
 @keyframes mascotBlipPulse {
   0%, 100% { opacity: 0.55; transform: scale(0.85); }
   50%      { opacity: 1;    transform: scale(1.2); }
+}
+
+@keyframes mascotVisorScan {
+  0%, 100% { fill-opacity: 0.08; stroke-opacity: 0.4; }
+  50%      { fill-opacity: 0.2;  stroke-opacity: 0.8; }
 }
 
 @keyframes mascotTalk {
