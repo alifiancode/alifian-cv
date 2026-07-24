@@ -14,14 +14,24 @@ function handleSpotlight(e) {
 
 export default function ProfessionalCerts() {
   const [ref, visible] = useReveal()
-  const [activeCert, setActiveCert] = useState(null)
+  const [activeIndex, setActiveIndex] = useState(null)
 
-  function openCert(cert) {
-    setActiveCert({
-      ...cert,
-      name: cert.title,
-      color: cert.accentColor,
-    })
+  function openCert(index) {
+    setActiveIndex(index)
+  }
+
+  function goPrev() {
+    setActiveIndex((i) => (i === null ? i : Math.max(0, i - 1)))
+  }
+
+  function goNext() {
+    setActiveIndex((i) => (i === null ? i : Math.min(professionalCerts.length - 1, i + 1)))
+  }
+
+  const activeCert = activeIndex === null ? null : {
+    ...professionalCerts[activeIndex],
+    name: professionalCerts[activeIndex].title,
+    color: professionalCerts[activeIndex].accentColor,
   }
 
   return (
@@ -38,10 +48,10 @@ export default function ProfessionalCerts() {
               className={`cert-card ${cert.colorClass}`}
               style={{ '--cert-color': cert.accentColor, '--i': i }}
               onMouseMove={handleSpotlight}
-              onClick={() => openCert(cert)}
+              onClick={() => openCert(i)}
               role="button"
               tabIndex={0}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCert(cert) } }}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCert(i) } }}
               aria-label={`View ${cert.title} certificate`}
             >
               <div className="cert-card__spotlight" aria-hidden="true" />
@@ -109,7 +119,11 @@ export default function ProfessionalCerts() {
       {activeCert && (
         <CertModal
           cert={activeCert}
-          onClose={() => setActiveCert(null)}
+          onClose={() => setActiveIndex(null)}
+          onPrev={goPrev}
+          onNext={goNext}
+          position={activeIndex + 1}
+          total={professionalCerts.length}
         />
       )}
     </section>

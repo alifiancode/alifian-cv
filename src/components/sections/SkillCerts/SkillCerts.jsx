@@ -7,8 +7,18 @@ import TypeTitle from '../../ui/TypeTitle/TypeTitle'
 import './SkillCerts.css'
 
 export default function SkillCerts() {
-  const [activeCert, setActiveCert] = useState(null)
+  const [activeIndex, setActiveIndex] = useState(null)
   const [ref, visible] = useReveal()
+
+  const activeCert = activeIndex === null ? null : skillCerts[activeIndex]
+
+  function goPrev() {
+    setActiveIndex((i) => (i === null ? i : Math.max(0, i - 1)))
+  }
+
+  function goNext() {
+    setActiveIndex((i) => (i === null ? i : Math.min(skillCerts.length - 1, i + 1)))
+  }
 
   return (
     <section className="skill-certs" id="skill-certs" ref={ref}>
@@ -22,7 +32,7 @@ export default function SkillCerts() {
             <button
               key={cert.id}
               className="skill-file"
-              onClick={() => setActiveCert(cert)}
+              onClick={() => setActiveIndex(i)}
               aria-label={`View ${cert.name} certificate`}
               type="button"
               style={{ '--lang-color': cert.color, '--i': i }}
@@ -61,7 +71,11 @@ export default function SkillCerts() {
       {activeCert && (
         <CertModal
           cert={activeCert}
-          onClose={() => setActiveCert(null)}
+          onClose={() => setActiveIndex(null)}
+          onPrev={goPrev}
+          onNext={goNext}
+          position={activeIndex + 1}
+          total={skillCerts.length}
         />
       )}
     </section>
