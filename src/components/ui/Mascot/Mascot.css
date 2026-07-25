@@ -13,88 +13,85 @@
   overflow: visible;
 }
 
-.mascot__shadow {
-  fill: rgba(0, 0, 0, 0.4);
-}
-
-.mascot__antenna {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: 0.8;
-}
-
-.mascot__blip {
-  fill: var(--green, #7EE787);
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: mascotBlipPulse 2.6s ease-in-out infinite;
-}
-.mascot--talking .mascot__blip {
-  animation: mascotBlipPulse 0.6s ease-in-out infinite;
-}
-
-.mascot__body {
+.mascot__torso {
   fill: var(--bg, #000000);
   stroke: currentColor;
   stroke-width: 2.5;
   transform-box: fill-box;
-  transform-origin: center;
+  transform-origin: 50% 0%;
 }
-.mascot--talking .mascot__body {
-  animation: mascotBodyEnergy 0.5s ease-in-out infinite;
+.mascot--talking .mascot__torso {
+  animation: mascotTorsoEnergy 0.5s ease-in-out infinite;
 }
-.mascot--settle .mascot__body {
+.mascot--settle .mascot__torso {
   animation: mascotSettle 0.4s var(--ease, ease);
 }
+.mascot--booped .mascot__torso {
+  animation: mascotBoop 0.5s var(--ease, ease);
+}
 
-.mascot__notch {
+.mascot__arm {
   fill: var(--bg, #000000);
+  stroke: currentColor;
+  stroke-width: 2.2;
+  transform-box: fill-box;
+  transform-origin: 50% 3%;
 }
 
-.mascot__trace {
+.mascot__arm-left {
+  animation: mascotArmIdleLeft 4.6s ease-in-out infinite;
+}
+
+.mascot__arm-right {
+  animation: mascotArmIdleRight 5.2s ease-in-out infinite;
+}
+.mascot--talking .mascot__arm-right {
+  animation: mascotArmTalk 0.6s ease-in-out infinite;
+}
+.mascot--booped .mascot__arm-right {
+  animation: mascotArmWave 0.72s ease-in-out 1;
+}
+
+.mascot__string {
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.4;
+  stroke-width: 1.6;
   stroke-linecap: round;
-  opacity: 0.3;
+  opacity: 0.7;
 }
 
-.mascot__node {
+.mascot__string-cap {
   fill: currentColor;
-  opacity: 0.4;
+  opacity: 0.7;
 }
 
-.mascot__pin {
-  fill: currentColor;
-  opacity: 0.85;
+.mascot__head {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: mascotHeadIdle 5.5s ease-in-out infinite;
+}
+.mascot--talking .mascot__head {
+  animation: mascotHeadNod 0.6s ease-in-out infinite;
 }
 
-.mascot__highlight {
+.mascot__head-shape {
+  fill: var(--bg, #000000);
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+.mascot__hood-peak {
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.5;
+  stroke-width: 2.2;
   stroke-linecap: round;
-  opacity: 0.15;
-}
-
-.mascot__visor {
-  fill: var(--green, #7EE787);
-  fill-opacity: 0.08;
-  stroke: var(--green, #7EE787);
-  stroke-opacity: 0.4;
-  stroke-width: 1;
-  transition: fill-opacity 0.2s var(--ease, ease), stroke-opacity 0.2s var(--ease, ease);
-}
-.mascot--talking .mascot__visor {
-  animation: mascotVisorScan 1s ease-in-out infinite;
-}
-
-.mascot__foot {
-  fill: currentColor;
   opacity: 0.9;
+}
+
+.mascot__ear {
+  fill: var(--bg, #000000);
+  stroke: currentColor;
+  stroke-width: 1.8;
 }
 
 .mascot__eye {
@@ -135,7 +132,7 @@
 .mascot__mouth--idle {
   fill: none;
   stroke: currentColor;
-  stroke-width: 3;
+  stroke-width: 2;
   stroke-linecap: round;
   opacity: 1;
 }
@@ -178,7 +175,7 @@
   color: inherit;
   cursor: pointer;
 }
-.mascot--interactive:hover .mascot__body {
+.mascot--interactive:hover .mascot__torso {
   filter: brightness(1.15);
 }
 .mascot--interactive:active {
@@ -190,14 +187,38 @@
   border-radius: 16px;
 }
 
-@keyframes mascotBlipPulse {
-  0%, 100% { opacity: 0.55; transform: scale(0.85); }
-  50%      { opacity: 1;    transform: scale(1.2); }
+@keyframes mascotHeadIdle {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50%      { transform: rotate(1.5deg); }
 }
 
-@keyframes mascotVisorScan {
-  0%, 100% { fill-opacity: 0.08; stroke-opacity: 0.4; }
-  50%      { fill-opacity: 0.2;  stroke-opacity: 0.8; }
+@keyframes mascotHeadNod {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50%      { transform: rotate(2deg); }
+}
+
+@keyframes mascotArmIdleLeft {
+  0%, 100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(3deg); }
+}
+
+@keyframes mascotArmIdleRight {
+  0%, 100% { transform: rotate(3deg); }
+  50%      { transform: rotate(-3deg); }
+}
+
+@keyframes mascotArmTalk {
+  0%, 100% { transform: rotate(-8deg); }
+  50%      { transform: rotate(18deg); }
+}
+
+@keyframes mascotArmWave {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(-140deg); }
+  35%  { transform: rotate(-115deg); }
+  55%  { transform: rotate(-155deg); }
+  75%  { transform: rotate(-120deg); }
+  100% { transform: rotate(0deg); }
 }
 
 @keyframes mascotTalk {
@@ -208,9 +229,9 @@
   100% { transform: scaleY(0.55) scaleX(1);     }
 }
 
-@keyframes mascotBodyEnergy {
+@keyframes mascotTorsoEnergy {
   0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.015); }
+  50%      { transform: scale(1.02); }
 }
 
 @keyframes mascotSettle {
@@ -226,7 +247,4 @@
   55%  { transform: scale(1.08, 0.92); }
   80%  { transform: scale(0.97, 1.03); }
   100% { transform: scale(1); }
-}
-.mascot--booped .mascot__body {
-  animation: mascotBoop 0.5s var(--ease, ease);
 }

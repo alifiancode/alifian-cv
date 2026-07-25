@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState, useCallback } from 'react'
 import Icon from '../Icon/Icon'
+import Mascot from '../Mascot/Mascot'
 import './CertModal.css'
 
 function triggerDownload(url, filename) {
@@ -65,8 +66,18 @@ export default function CertModal({
     return () => observer.disconnect()
   }, [])
 
+  const [explaining, setExplaining] = useState(true)
+  const explainTimer = useRef(null)
+
   useLayoutEffect(() => {
     if (modalRef.current) modalRef.current.scrollTop = 0
+  }, [cert.pdfFile])
+
+  useEffect(() => {
+    setExplaining(true)
+    clearTimeout(explainTimer.current)
+    explainTimer.current = setTimeout(() => setExplaining(false), 1500)
+    return () => clearTimeout(explainTimer.current)
   }, [cert.pdfFile])
 
   useEffect(() => {
@@ -174,10 +185,19 @@ export default function CertModal({
         )}
 
         <div className="cm__explain cm__fade" key={cert.pdfFile}>
-          <p className="cm__explain-label">
-            <span className="syn-punct">/**</span> what is {cert.name}<span className="syn-punct">?</span>
-          </p>
-          <p className="cm__explain-text">{cert.explain}</p>
+          <Mascot
+            size={44}
+            talking={explaining}
+            floating
+            interactive
+            className="cm__explain-mascot"
+          />
+          <div className="cm__explain-content">
+            <p className="cm__explain-label">
+              <span className="syn-punct">/**</span> what is {cert.name}<span className="syn-punct">?</span>
+            </p>
+            <p className="cm__explain-text">{cert.explain}</p>
+          </div>
         </div>
 
         <div className="cm__toolbar">

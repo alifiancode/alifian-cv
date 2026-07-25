@@ -108,7 +108,7 @@ export default function Mascot({
   function handleBoop() {
     setBooped(true)
     clearTimeout(boopTimer.current)
-    boopTimer.current = setTimeout(() => setBooped(false), 550)
+    boopTimer.current = setTimeout(() => setBooped(false), 720)
     onBoop?.()
   }
 
@@ -127,46 +127,39 @@ export default function Mascot({
 
   const face = (
     <svg viewBox="0 0 64 64" className="mascot__svg">
-      <ellipse cx="32" cy="59" rx="15" ry="3" className="mascot__shadow" />
+      <path d="M14 64 V48 Q15 37 26 34 H38 Q49 37 50 48 V64 Z" className="mascot__torso" />
 
-      <path d="M27 14 Q23 8 26.5 4.5" className="mascot__antenna" />
-      <circle cx="26.5" cy="4.3" r="3.2" className="mascot__blip" />
+      <path d="M9 47 Q7 47 7 51 L7 61 Q7 65 11 65 L18 65 L18 46 Z" className="mascot__arm mascot__arm-left" />
 
-      <rect x="9" y="14" width="46" height="40" rx="14" className="mascot__body" />
-      <circle cx="36" cy="14" r="3" className="mascot__notch" />
+      <path d="M27 35 L26 43" className="mascot__string" />
+      <circle cx="26" cy="44" r="1.3" className="mascot__string-cap" />
+      <path d="M37 35 L38 43" className="mascot__string" />
+      <circle cx="38" cy="44" r="1.3" className="mascot__string-cap" />
 
-      <path d="M14 20 V24 H18" className="mascot__trace" />
-      <circle cx="18" cy="24" r="1.1" className="mascot__node" />
-      <path d="M50 20 V24 H46" className="mascot__trace" />
-      <circle cx="46" cy="24" r="1.1" className="mascot__node" />
+      <g className="mascot__head">
+        <circle cx="32" cy="22" r="13" className="mascot__head-shape" />
+        <path d="M26 11 Q32 3.5 38 11" className="mascot__hood-peak" />
+        <circle cx="20.5" cy="23" r="2.4" className="mascot__ear" />
+        <circle cx="43.5" cy="23" r="2.4" className="mascot__ear" />
 
-      <rect x="3" y="29" width="6" height="3" rx="1.2" className="mascot__pin" />
-      <rect x="3" y="36" width="6" height="3" rx="1.2" className="mascot__pin" />
-      <rect x="55" y="29" width="6" height="3" rx="1.2" className="mascot__pin" />
-      <rect x="55" y="36" width="6" height="3" rx="1.2" className="mascot__pin" />
+        <g className="mascot__eye">
+          <circle cx="26" cy="22" r="3.2" className="mascot__eye-white" />
+          <circle cx="26" cy="22" r="1.5" className="mascot__eye-pupil" style={pupilStyle} />
+        </g>
+        <g className="mascot__eye">
+          <circle cx="38" cy="22" r="3.2" className="mascot__eye-white" />
+          <circle cx="38" cy="22" r="1.5" className="mascot__eye-pupil" style={pupilStyle} />
+        </g>
 
-      <rect x="15" y="51" width="9" height="7" rx="3" className="mascot__foot" />
-      <rect x="40" y="51" width="9" height="7" rx="3" className="mascot__foot" />
+        <ellipse cx="20" cy="27" rx="2.6" ry="1.8" className="mascot__cheek" />
+        <ellipse cx="44" cy="27" rx="2.6" ry="1.8" className="mascot__cheek" />
 
-      <path d="M14 20 Q32 10 50 20" className="mascot__highlight" />
-
-      <rect x="13" y="26" width="38" height="13" rx="6.5" className="mascot__visor" />
-
-      <g className="mascot__eye">
-        <circle cx="22" cy="33" r="4.6" className="mascot__eye-white" />
-        <circle cx="22" cy="33" r="2.1" className="mascot__eye-pupil" style={pupilStyle} />
-      </g>
-      <g className="mascot__eye">
-        <circle cx="42" cy="33" r="4.6" className="mascot__eye-white" />
-        <circle cx="42" cy="33" r="2.1" className="mascot__eye-pupil" style={pupilStyle} />
+        <path d="M26 28 Q32 32 38 28" className="mascot__mouth mascot__mouth--idle" />
+        <rect x="29" y="27" width="6" height="3.5" rx="1.75" className="mascot__mouth mascot__mouth--talk" />
+        <circle cx="32" cy="29" r="2.3" className="mascot__mouth mascot__mouth--boop" />
       </g>
 
-      <ellipse cx="14" cy="40" rx="3.2" ry="2" className="mascot__cheek" />
-      <ellipse cx="50" cy="40" rx="3.2" ry="2" className="mascot__cheek" />
-
-      <path d="M24 42 Q32 48 40 42" className="mascot__mouth mascot__mouth--idle" />
-      <rect x="27" y="40" width="10" height="5" rx="2.5" className="mascot__mouth mascot__mouth--talk" />
-      <circle cx="32" cy="44" r="4" className="mascot__mouth mascot__mouth--boop" />
+      <path d="M55 47 Q57 47 57 51 L57 61 Q57 65 53 65 L46 65 L46 46 Z" className="mascot__arm mascot__arm-right" />
     </svg>
   )
 
