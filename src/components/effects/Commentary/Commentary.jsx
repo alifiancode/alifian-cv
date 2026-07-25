@@ -40,7 +40,7 @@ export default function Commentary({ hidden = false }) {
           aria-expanded="false"
           type="button"
         >
-          <Mascot size={34} floating />
+          <Mascot size={38} floating />
           <span>Commentary</span>
           {!everOpened && <span className="commentary__ping" aria-hidden="true" />}
         </button>
@@ -80,7 +80,7 @@ export default function Commentary({ hidden = false }) {
 
         <div className="commentary__body">
           <div className="commentary__speaker">
-            <Mascot size={44} talking={!done} interactive />
+            <Mascot size={54} talking={!done} interactive />
             <span className="commentary__mascot-name">Bit</span>
           </div>
           <div className="commentary__bubble">

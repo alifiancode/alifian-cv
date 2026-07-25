@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, useCallback } from 'react'
 import Icon from '../Icon/Icon'
 import Mascot from '../Mascot/Mascot'
+import { useTypeReveal } from '../../../hooks/useTypeReveal'
 import './CertModal.css'
 
 function triggerDownload(url, filename) {
@@ -66,19 +67,11 @@ export default function CertModal({
     return () => observer.disconnect()
   }, [])
 
-  const [explaining, setExplaining] = useState(true)
-  const explainTimer = useRef(null)
-
   useLayoutEffect(() => {
     if (modalRef.current) modalRef.current.scrollTop = 0
   }, [cert.pdfFile])
 
-  useEffect(() => {
-    setExplaining(true)
-    clearTimeout(explainTimer.current)
-    explainTimer.current = setTimeout(() => setExplaining(false), 1500)
-    return () => clearTimeout(explainTimer.current)
-  }, [cert.pdfFile])
+  const [explainDisplay, explainDone] = useTypeReveal(cert.explain, true, 2200, 8, 30)
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -186,8 +179,8 @@ export default function CertModal({
 
         <div className="cm__explain cm__fade" key={cert.pdfFile}>
           <Mascot
-            size={44}
-            talking={explaining}
+            size={54}
+            talking={!explainDone}
             floating
             interactive
             className="cm__explain-mascot"
@@ -196,7 +189,10 @@ export default function CertModal({
             <p className="cm__explain-label">
               <span className="syn-punct">/**</span> what is {cert.name}<span className="syn-punct">?</span>
             </p>
-            <p className="cm__explain-text">{cert.explain}</p>
+            <p className="cm__explain-text" aria-label={cert.explain}>
+              {explainDisplay}
+              {!explainDone && <span className="type-cursor" aria-hidden="true" />}
+            </p>
           </div>
         </div>
 

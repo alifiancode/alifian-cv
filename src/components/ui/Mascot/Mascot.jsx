@@ -126,40 +126,59 @@ export default function Mascot({
   const pupilStyle = { transform: `translate(${gaze.x}px, ${gaze.y}px)` }
 
   const face = (
-    <svg viewBox="0 0 64 64" className="mascot__svg">
-      <path d="M14 64 V48 Q15 37 26 34 H38 Q49 37 50 48 V64 Z" className="mascot__torso" />
+    <svg viewBox="0 0 64 84" className="mascot__svg">
+      <path d="M24 53 Q23 65 22 76" className="mascot__leg" />
+      <path d="M40 53 Q41 65 42 76" className="mascot__leg" />
+      <rect x="12" y="73" width="17" height="9" rx="4.3" className="mascot__shoe" />
+      <rect x="35" y="73" width="17" height="9" rx="4.3" className="mascot__shoe" />
 
-      <path d="M9 47 Q7 47 7 51 L7 61 Q7 65 11 65 L18 65 L18 46 Z" className="mascot__arm mascot__arm-left" />
-
-      <path d="M27 35 L26 43" className="mascot__string" />
-      <circle cx="26" cy="44" r="1.3" className="mascot__string-cap" />
-      <path d="M37 35 L38 43" className="mascot__string" />
-      <circle cx="38" cy="44" r="1.3" className="mascot__string-cap" />
-
-      <g className="mascot__head">
-        <circle cx="32" cy="22" r="13" className="mascot__head-shape" />
-        <path d="M26 11 Q32 3.5 38 11" className="mascot__hood-peak" />
-        <circle cx="20.5" cy="23" r="2.4" className="mascot__ear" />
-        <circle cx="43.5" cy="23" r="2.4" className="mascot__ear" />
-
-        <g className="mascot__eye">
-          <circle cx="26" cy="22" r="3.2" className="mascot__eye-white" />
-          <circle cx="26" cy="22" r="1.5" className="mascot__eye-pupil" style={pupilStyle} />
-        </g>
-        <g className="mascot__eye">
-          <circle cx="38" cy="22" r="3.2" className="mascot__eye-white" />
-          <circle cx="38" cy="22" r="1.5" className="mascot__eye-pupil" style={pupilStyle} />
-        </g>
-
-        <ellipse cx="20" cy="27" rx="2.6" ry="1.8" className="mascot__cheek" />
-        <ellipse cx="44" cy="27" rx="2.6" ry="1.8" className="mascot__cheek" />
-
-        <path d="M26 28 Q32 32 38 28" className="mascot__mouth mascot__mouth--idle" />
-        <rect x="29" y="27" width="6" height="3.5" rx="1.75" className="mascot__mouth mascot__mouth--talk" />
-        <circle cx="32" cy="29" r="2.3" className="mascot__mouth mascot__mouth--boop" />
+      <g className="mascot__arm-left">
+        <path d="M17 27 Q9 47 16 58" className="mascot__sleeve" />
+        <ellipse cx="16" cy="58" rx="5" ry="5.5" className="mascot__hand" />
+        <circle cx="12" cy="55" r="2.1" className="mascot__thumb" />
       </g>
 
-      <path d="M55 47 Q57 47 57 51 L57 61 Q57 65 53 65 L46 65 L46 46 Z" className="mascot__arm mascot__arm-right" />
+      <path d="M17 27 Q18 24 22 23 H42 Q46 24 47 27 L45 49 Q44 53 40 53 H24 Q20 53 19 49 Z" className="mascot__torso" />
+      <path d="M24 42 Q32 46 40 42" className="mascot__pocket" />
+      <path d="M20 26 Q19 23 22 22" className="mascot__torso-highlight" />
+
+      <path d="M26 23 L25 32" className="mascot__string" />
+      <circle cx="25" cy="33" r="1.3" className="mascot__string-cap" />
+      <path d="M38 23 L39 32" className="mascot__string" />
+      <circle cx="39" cy="33" r="1.3" className="mascot__string-cap" />
+
+      <g className="mascot__head">
+        <circle cx="32" cy="14" r="11" className="mascot__head-shape" />
+        <path d="M27 5 Q32 -1 37 5" className="mascot__hood-peak" />
+        <path d="M22 10 Q21 6 25 4" className="mascot__head-highlight" />
+        <circle cx="22.5" cy="15" r="2.2" className="mascot__ear" />
+        <circle cx="41.5" cy="15" r="2.2" className="mascot__ear" />
+
+        <g className="mascot__eye">
+          <circle cx="28" cy="14" r="2.7" className="mascot__eye-white" />
+          <circle cx="28" cy="14" r="1.3" className="mascot__eye-pupil" style={pupilStyle} />
+        </g>
+        <g className="mascot__eye">
+          <circle cx="36" cy="14" r="2.7" className="mascot__eye-white" />
+          <circle cx="36" cy="14" r="1.3" className="mascot__eye-pupil" style={pupilStyle} />
+        </g>
+
+        <ellipse cx="23" cy="18.5" rx="2.3" ry="1.6" className="mascot__cheek" />
+        <ellipse cx="41" cy="18.5" rx="2.3" ry="1.6" className="mascot__cheek" />
+
+        <path d="M28 19 Q32 22 36 19" className="mascot__mouth mascot__mouth--idle" />
+        <rect x="29.5" y="18.5" width="5" height="3" rx="1.5" className="mascot__mouth mascot__mouth--talk" />
+        <circle cx="32" cy="20" r="2" className="mascot__mouth mascot__mouth--boop" />
+      </g>
+
+      <g className="mascot__arm-right">
+        <path d="M47 27 Q51 32 54 40" className="mascot__sleeve" />
+        <g className="mascot__forearm-right">
+          <path d="M54 40 Q52 48 49 56" className="mascot__sleeve mascot__forearm-sleeve" />
+          <ellipse cx="48" cy="57" rx="5" ry="5.5" className="mascot__hand" />
+          <circle cx="52" cy="54" r="2.1" className="mascot__thumb" />
+        </g>
+      </g>
     </svg>
   )
 
