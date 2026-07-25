@@ -133,9 +133,9 @@ export default function Mascot({
       <rect x="35" y="73" width="17" height="9" rx="4.3" className="mascot__shoe" />
 
       <g className="mascot__arm-left">
-        <path d="M17 27 Q9 47 16 58" className="mascot__sleeve" />
-        <ellipse cx="16" cy="58" rx="5" ry="5.5" className="mascot__hand" />
-        <circle cx="12" cy="55" r="2.1" className="mascot__thumb" />
+        <path d="M17 27 Q8 44 11 53" className="mascot__sleeve" />
+        <ellipse cx="11" cy="53" rx="5" ry="5.5" className="mascot__hand" />
+        <circle cx="7" cy="50" r="2.1" className="mascot__thumb" />
       </g>
 
       <path d="M17 27 Q18 24 22 23 H42 Q46 24 47 27 L45 49 Q44 53 40 53 H24 Q20 53 19 49 Z" className="mascot__torso" />
@@ -174,9 +174,9 @@ export default function Mascot({
       <g className="mascot__arm-right">
         <path d="M47 27 Q51 32 54 40" className="mascot__sleeve" />
         <g className="mascot__forearm-right">
-          <path d="M54 40 Q52 48 49 56" className="mascot__sleeve mascot__forearm-sleeve" />
-          <ellipse cx="48" cy="57" rx="5" ry="5.5" className="mascot__hand" />
-          <circle cx="52" cy="54" r="2.1" className="mascot__thumb" />
+          <path d="M54 40 Q58 47 55 53" className="mascot__sleeve mascot__forearm-sleeve" />
+          <ellipse cx="55" cy="53" rx="5" ry="5.5" className="mascot__hand" />
+          <circle cx="59" cy="50" r="2.1" className="mascot__thumb" />
         </g>
       </g>
     </svg>

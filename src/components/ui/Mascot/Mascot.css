@@ -71,9 +71,6 @@
   transform-box: view-box;
   transform-origin: 54px 40px;
 }
-.mascot--booped .mascot__forearm-right {
-  animation: mascotForearmWave 0.72s ease-in-out 1;
-}
 
 .mascot__torso {
   fill: var(--bg, #000000);
@@ -280,16 +277,6 @@
   0%   { transform: rotate(0deg); }
   25%  { transform: rotate(-42deg); }
   80%  { transform: rotate(-42deg); }
-  100% { transform: rotate(0deg); }
-}
-
-@keyframes mascotForearmWave {
-  0%   { transform: rotate(0deg); }
-  25%  { transform: rotate(8deg); }
-  40%  { transform: rotate(-22deg); }
-  55%  { transform: rotate(28deg); }
-  70%  { transform: rotate(-12deg); }
-  85%  { transform: rotate(16deg); }
   100% { transform: rotate(0deg); }
 }
 
