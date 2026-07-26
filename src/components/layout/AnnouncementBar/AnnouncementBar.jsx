@@ -64,7 +64,7 @@ export default function AnnouncementBar({ hidden = false }) {
         <div className="announce__lead">
           <span className="announce__dot" aria-hidden="true" />
           <p className="announce__text">
-            <strong>Open to any role, not just development</strong> — flexible,
+            <strong>Open to any role, not just development</strong> flexible,
             fast learner, ready to start right away.
           </p>
         </div>
