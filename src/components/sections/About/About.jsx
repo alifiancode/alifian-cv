@@ -53,7 +53,7 @@ export default function About() {
                 in the world.
               </p>
               <p className="about__bio">
-                My spoken <strong>English</strong> is intermediate, though I
+                My spoken <strong>English</strong> is fluent, and I
                 follow native speakers and technical conversations with ease.
                 I'm ready to relocate to
                 <strong> any city, region, or country</strong>, based entirely on what the
@@ -63,7 +63,7 @@ export default function About() {
               <ul className="about__highlights">
                 {[
                   { icon: 'globe', text: 'Open to relocation, worldwide' },
-                  { icon: 'message', text: 'Intermediate English, good ear' },
+                  { icon: 'message', text: 'Fluent English, good ear' },
                   { icon: 'award', text: 'Self-taught · Mimo Certified' },
                   { icon: 'map-pin', text: `Currently in ${config.location}` },
                   { icon: 'graduation-cap', text: 'SMK 17 Agustus 1945 · Software Engineering' },

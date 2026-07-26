@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { scrollToSection } from '../../../utils/scrollTo'
 import { useActiveSection } from '../../../hooks/useActiveSection'
 import Icon from '../../ui/Icon/Icon'
@@ -15,6 +15,8 @@ const SECTION_IDS = SECTIONS.map((section) => section.id)
 
 export default function Sidebar({ isOpen, onClose }) {
   const active = useActiveSection(SECTION_IDS)
+  const [rootOpen, setRootOpen] = useState(true)
+  const [srcOpen, setSrcOpen] = useState(true)
 
   useEffect(() => {
     if (!isOpen) return
@@ -45,31 +47,47 @@ export default function Sidebar({ isOpen, onClose }) {
         </div>
 
         <div className="sidebar__tree">
-          <div className="sidebar__row sidebar__row--root">
-            <Icon name="chevron-right" className="sidebar__chevron sidebar__chevron--open" />
-            <Icon name="folder-open" className="sidebar__icon sidebar__icon--folder" />
+          <button
+            className="sidebar__row sidebar__row--root"
+            onClick={() => setRootOpen((v) => !v)}
+            type="button"
+            tabIndex={isOpen ? 0 : -1}
+            aria-expanded={rootOpen}
+          >
+            <Icon name="chevron-right" className={`sidebar__chevron${rootOpen ? ' sidebar__chevron--open' : ''}`} />
+            <Icon name={rootOpen ? 'folder-open' : 'folder'} className="sidebar__icon sidebar__icon--folder" />
             <span>ALIFIAN-PORTFOLIO</span>
-          </div>
+          </button>
 
-          <div className="sidebar__row sidebar__row--nested">
-            <Icon name="chevron-right" className="sidebar__chevron sidebar__chevron--open" />
-            <Icon name="folder-open" className="sidebar__icon sidebar__icon--folder" />
-            <span>src</span>
-          </div>
+          {rootOpen && (
+            <>
+              <button
+                className="sidebar__row sidebar__row--nested"
+                onClick={() => setSrcOpen((v) => !v)}
+                type="button"
+                tabIndex={isOpen ? 0 : -1}
+                aria-expanded={srcOpen}
+              >
+                <Icon name="chevron-right" className={`sidebar__chevron${srcOpen ? ' sidebar__chevron--open' : ''}`} />
+                <Icon name={srcOpen ? 'folder-open' : 'folder'} className="sidebar__icon sidebar__icon--folder" />
+                <span>src</span>
+              </button>
 
-          {SECTIONS.map(({ id, label }) => (
-            <button
-              key={id}
-              className={`sidebar__file${active === id ? ' sidebar__file--active' : ''}`}
-              onClick={() => handleSelect(id)}
-              type="button"
-              tabIndex={isOpen ? 0 : -1}
-            >
-              <Icon name="file" className="sidebar__icon" />
-              <span>{label}</span>
-              {active === id && <span className="sidebar__file-dot" aria-hidden="true" />}
-            </button>
-          ))}
+              {srcOpen && SECTIONS.map(({ id, label }) => (
+                <button
+                  key={id}
+                  className={`sidebar__file${active === id ? ' sidebar__file--active' : ''}`}
+                  onClick={() => handleSelect(id)}
+                  type="button"
+                  tabIndex={isOpen ? 0 : -1}
+                >
+                  <Icon name="file" className="sidebar__icon" />
+                  <span>{label}</span>
+                  {active === id && <span className="sidebar__file-dot" aria-hidden="true" />}
+                </button>
+              ))}
+            </>
+          )}
         </div>
 
         <div className="sidebar__footer">

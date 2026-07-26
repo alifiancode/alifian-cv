@@ -33,10 +33,6 @@
   stroke-linecap: round;
 }
 
-.mascot__forearm-sleeve {
-  stroke-width: 7.5;
-}
-
 .mascot__hand {
   fill: var(--bg, #000000);
   stroke: currentColor;
@@ -47,29 +43,6 @@
   fill: var(--bg, #000000);
   stroke: currentColor;
   stroke-width: 1.8;
-}
-
-.mascot__arm-left {
-  transform-box: view-box;
-  transform-origin: 17px 27px;
-  animation: mascotArmIdleLeft 4.6s ease-in-out infinite;
-}
-
-.mascot__arm-right {
-  transform-box: view-box;
-  transform-origin: 47px 27px;
-  animation: mascotArmIdleRight 5.2s ease-in-out infinite;
-}
-.mascot--talking .mascot__arm-right {
-  animation: mascotArmTalk 0.6s ease-in-out infinite;
-}
-.mascot--booped .mascot__arm-right {
-  animation: mascotArmRaise 0.72s ease-in-out 1;
-}
-
-.mascot__forearm-right {
-  transform-box: view-box;
-  transform-origin: 54px 40px;
 }
 
 .mascot__torso {
@@ -256,28 +229,6 @@
 @keyframes mascotHeadNod {
   0%, 100% { transform: rotate(-2.5deg); }
   50%      { transform: rotate(2deg); }
-}
-
-@keyframes mascotArmIdleLeft {
-  0%, 100% { transform: rotate(-3deg); }
-  50%      { transform: rotate(3deg); }
-}
-
-@keyframes mascotArmIdleRight {
-  0%, 100% { transform: rotate(3deg); }
-  50%      { transform: rotate(-3deg); }
-}
-
-@keyframes mascotArmTalk {
-  0%, 100% { transform: rotate(-6deg); }
-  50%      { transform: rotate(14deg); }
-}
-
-@keyframes mascotArmRaise {
-  0%   { transform: rotate(0deg); }
-  25%  { transform: rotate(-42deg); }
-  80%  { transform: rotate(-42deg); }
-  100% { transform: rotate(0deg); }
 }
 
 @keyframes mascotTalk {

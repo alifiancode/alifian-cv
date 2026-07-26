@@ -172,12 +172,9 @@ export default function Mascot({
       </g>
 
       <g className="mascot__arm-right">
-        <path d="M47 27 Q51 32 54 40" className="mascot__sleeve" />
-        <g className="mascot__forearm-right">
-          <path d="M54 40 Q58 47 55 53" className="mascot__sleeve mascot__forearm-sleeve" />
-          <ellipse cx="55" cy="53" rx="5" ry="5.5" className="mascot__hand" />
-          <circle cx="59" cy="50" r="2.1" className="mascot__thumb" />
-        </g>
+        <path d="M47 27 Q56 44 53 53" className="mascot__sleeve" />
+        <ellipse cx="53" cy="53" rx="5" ry="5.5" className="mascot__hand" />
+        <circle cx="57" cy="50" r="2.1" className="mascot__thumb" />
       </g>
     </svg>
   )

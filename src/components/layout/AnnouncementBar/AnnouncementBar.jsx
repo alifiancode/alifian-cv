@@ -29,7 +29,19 @@ export default function AnnouncementBar() {
     }
   }, [dismissed])
 
-  if (dismissed) return null
+  if (dismissed) {
+    return (
+      <button
+        type="button"
+        className="announce-reopen"
+        onClick={() => setDismissed(false)}
+        aria-label="Show job search availability message again"
+      >
+        <span className="announce-reopen__dot" aria-hidden="true" />
+        Open to any role — ready to start now
+      </button>
+    )
+  }
 
   return (
     <div className="announce" ref={barRef} role="region" aria-label="Job search availability">
@@ -37,7 +49,7 @@ export default function AnnouncementBar() {
         <div className="announce__lead">
           <span className="announce__dot" aria-hidden="true" />
           <p className="announce__text">
-            <strong>Also open to roles beyond development</strong> — flexible,
+            <strong>Open to any role, not just development</strong> — flexible,
             fast learner, ready to start right away.
           </p>
         </div>
@@ -62,6 +74,7 @@ export default function AnnouncementBar() {
             <line x1="18" y1="6" x2="6" y2="18" />
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
+          Close
         </button>
       </div>
     </div>
