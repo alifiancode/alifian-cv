@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export function useCountUp(target, duration = 1200, start = false) {
+export function useCountUp(target, duration = 1200, start = false, delay = 0) {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -25,10 +25,16 @@ export function useCountUp(target, duration = 1200, start = false) {
         setCount(target)
       }
     }
-    raf = requestAnimationFrame(step)
 
-    return () => cancelAnimationFrame(raf)
-  }, [start, target, duration])
+    const delayId = setTimeout(() => {
+      raf = requestAnimationFrame(step)
+    }, delay)
+
+    return () => {
+      clearTimeout(delayId)
+      cancelAnimationFrame(raf)
+    }
+  }, [start, target, duration, delay])
 
   return count
 }

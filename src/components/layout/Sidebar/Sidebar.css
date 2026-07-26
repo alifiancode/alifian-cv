@@ -169,7 +169,16 @@
   cursor: pointer;
   position: relative;
   min-height: 38px;
-  transition: background .15s, color .15s;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: background .15s, color .15s,
+              opacity .3s var(--ease, ease), transform .3s var(--ease, ease);
+  transition-delay: 0s;
+}
+.sidebar__file--in {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: calc(var(--i) * 0.05s);
 }
 .sidebar__file:hover {
   background: var(--surface-hover);

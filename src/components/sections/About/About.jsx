@@ -1,8 +1,14 @@
 import { config } from '../../../data/config'
 import { useReveal } from '../../../hooks/useReveal'
+import { useCountUp } from '../../../hooks/useCountUp'
 import Icon from '../../ui/Icon/Icon'
 import TypeTitle from '../../ui/TypeTitle/TypeTitle'
 import './About.css'
+
+function CountStat({ target, visible, delay = 0 }) {
+  const count = useCountUp(target, 1100, visible, delay)
+  return <span className="syn-number about__stat-value">{count}</span>
+}
 
 export default function About() {
   const [ref, visible] = useReveal()
@@ -63,7 +69,7 @@ export default function About() {
               <ul className="about__highlights">
                 {[
                   { icon: 'globe', text: 'Open to relocation, worldwide' },
-                  { icon: 'message', text: 'Fluent English, good ear' },
+                  { icon: 'message', text: 'Fluent English' },
                   { icon: 'award', text: 'Self-taught · Mimo Certified' },
                   { icon: 'map-pin', text: `Currently in ${config.location}` },
                   { icon: 'graduation-cap', text: 'SMK 17 Agustus 1945 · Software Engineering' },
@@ -87,22 +93,22 @@ export default function About() {
                 <div className="about__stat-row">
                   <span className="syn-property">age</span>
                   <span className="syn-punct">:</span>
-                  <span className="syn-number about__stat-value">18</span>
+                  <CountStat target={18} visible={visible} delay={0} />
                 </div>
                 <div className="about__stat-row">
                   <span className="syn-property">certificates</span>
                   <span className="syn-punct">:</span>
-                  <span className="syn-number about__stat-value">12</span>
+                  <CountStat target={12} visible={visible} delay={90} />
                 </div>
                 <div className="about__stat-row">
                   <span className="syn-property">professional</span>
                   <span className="syn-punct">:</span>
-                  <span className="syn-number about__stat-value">4</span>
+                  <CountStat target={4} visible={visible} delay={180} />
                 </div>
                 <div className="about__stat-row">
                   <span className="syn-property">skillBadges</span>
                   <span className="syn-punct">:</span>
-                  <span className="syn-number about__stat-value">8</span>
+                  <CountStat target={8} visible={visible} delay={270} />
                 </div>
                 <div className="about__stat-row">
                   <span className="syn-property">since</span>

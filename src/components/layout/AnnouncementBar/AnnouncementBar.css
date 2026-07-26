@@ -165,7 +165,7 @@
   cursor: pointer;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
   transition: border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
-  animation: announceReopenIn .24s var(--ease);
+  animation: announceReopenIn 0.32s var(--ease-spring);
 }
 @keyframes announceReopenIn {
   from { opacity: 0; transform: translateY(-8px) scale(0.94); }

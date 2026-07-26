@@ -93,13 +93,14 @@ export default function Sidebar({ isOpen, onClose }) {
 
               <div className={`sidebar__collapse${srcOpen ? ' sidebar__collapse--open' : ''}`}>
                 <div className="sidebar__collapse-inner">
-                  {SECTIONS.map(({ id, label }) => (
+                  {SECTIONS.map(({ id, label }, i) => (
                     <button
                       key={id}
-                      className={`sidebar__file${active === id ? ' sidebar__file--active' : ''}`}
+                      className={`sidebar__file${active === id ? ' sidebar__file--active' : ''}${srcOpen ? ' sidebar__file--in' : ''}`}
                       onClick={() => handleSelect(id)}
                       type="button"
                       tabIndex={isOpen && rootOpen && srcOpen ? 0 : -1}
+                      style={{ '--i': i }}
                     >
                       <Icon name="file" className="sidebar__icon" />
                       <span>{label}</span>

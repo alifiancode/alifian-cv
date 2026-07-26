@@ -37,7 +37,7 @@
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   box-shadow: 0 32px 100px rgba(0, 0, 0, 0.65);
-  animation: cmIn .28s var(--ease);
+  animation: cmIn .34s var(--ease-spring);
   touch-action: pan-y;
 }
 .cm--closing {
