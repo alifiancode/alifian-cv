@@ -53,7 +53,7 @@ export default function AnnouncementBar({ hidden = false }) {
         aria-label="Show job search availability message again"
       >
         <span className="announce-reopen__dot" aria-hidden="true" />
-        Open to any role — ready to start now
+        Open to any role ready to start now
       </button>
     )
   }
