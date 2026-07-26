@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="app">
-      <AnnouncementBar />
+      <AnnouncementBar hidden={sidebarOpen} />
       <ScrollProgress />
       <Navbar onToggleSidebar={() => setSidebarOpen(v => !v)} />
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />

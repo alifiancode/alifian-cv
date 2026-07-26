@@ -12,14 +12,13 @@
 }
 
 .announce__inner {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px 20px;
+  gap: 10px 24px;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 11px 92px 11px 16px;
+  padding: 11px 16px;
 }
 
 .announce__lead {
@@ -88,10 +87,6 @@
 .announce__close {
   all: unset;
   box-sizing: border-box;
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -104,6 +99,8 @@
   font-weight: 600;
   color: var(--text-muted);
   cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
   transition: all .2s var(--ease);
 }
 .announce__close svg { flex-shrink: 0; }
@@ -113,7 +110,7 @@
   background: var(--surface-hover);
 }
 .announce__close:active {
-  transform: translateY(-50%) scale(.94);
+  transform: scale(.94);
 }
 .announce__close:focus-visible {
   outline: 2px solid var(--accent);
@@ -121,15 +118,15 @@
 }
 
 @media (max-width: 640px) {
-  .announce__inner { padding: 10px 84px 10px 14px; gap: 6px 14px; }
+  .announce__inner { padding: 10px 14px; gap: 8px 16px; }
   .announce__text { font-size: 0.78rem; }
   .announce__link { font-size: 0.76rem; }
-  .announce__close { height: 28px; padding: 0 10px; font-size: 0.72rem; right: 10px; }
+  .announce__close { height: 28px; padding: 0 10px; font-size: 0.72rem; }
 }
 
 @media (max-width: 400px) {
-  .announce__inner { padding: 9px 76px 9px 12px; }
-  .announce__close { height: 26px; padding: 0 9px; gap: 4px; font-size: 0.68rem; right: 8px; }
+  .announce__inner { padding: 9px 12px; }
+  .announce__close { height: 26px; padding: 0 9px; gap: 4px; font-size: 0.68rem; }
   .announce__close svg { width: 12px; height: 12px; }
 }
 
@@ -138,7 +135,7 @@
   box-sizing: border-box;
   position: fixed;
   top: calc(env(safe-area-inset-top) + 70px);
-  right: 16px;
+  left: 16px;
   z-index: 150;
   display: inline-flex;
   align-items: center;
@@ -184,7 +181,7 @@
 @media (max-width: 480px) {
   .announce-reopen {
     top: calc(env(safe-area-inset-top) + 62px);
-    right: 10px;
+    left: 10px;
     max-width: min(240px, calc(100vw - 20px));
     padding: 7px 14px 7px 10px;
     font-size: 0.7rem;

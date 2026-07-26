@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import { handleSectionLink } from '../../../utils/scrollTo'
 import './AnnouncementBar.css'
 
-export default function AnnouncementBar() {
+export default function AnnouncementBar({ hidden = false }) {
   const [dismissed, setDismissed] = useState(false)
   const barRef = useRef(null)
 
@@ -10,7 +10,7 @@ export default function AnnouncementBar() {
     const root = document.documentElement
     const el = barRef.current
 
-    if (dismissed || !el) {
+    if (dismissed || hidden || !el) {
       root.style.setProperty('--announce-h', '0px')
       return
     }
@@ -27,7 +27,9 @@ export default function AnnouncementBar() {
       window.removeEventListener('resize', setHeight)
       root.style.setProperty('--announce-h', '0px')
     }
-  }, [dismissed])
+  }, [dismissed, hidden])
+
+  if (hidden) return null
 
   if (dismissed) {
     return (
