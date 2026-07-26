@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { commentaryEntries } from '../../../data/commentary'
 import { useActiveSection } from '../../../hooks/useActiveSection'
 import { useTypeReveal } from '../../../hooks/useTypeReveal'
@@ -18,6 +18,8 @@ function readStoredOpen() {
 
 export default function Commentary({ hidden = false }) {
   const [open, setOpen] = useState(readStoredOpen)
+  const [closing, setClosing] = useState(false)
+  const closeTimer = useRef(null)
   const [everOpened, setEverOpened] = useState(open)
   const activeId = useActiveSection(SECTION_IDS)
   const active = commentaryEntries.find((entry) => entry.id === activeId) ?? commentaryEntries[0]
@@ -27,6 +29,17 @@ export default function Commentary({ hidden = false }) {
     window.localStorage.setItem(STORAGE_KEY, String(open))
     if (open) setEverOpened(true)
   }, [open])
+
+  useEffect(() => () => clearTimeout(closeTimer.current), [])
+
+  function handleClose() {
+    setClosing(true)
+    clearTimeout(closeTimer.current)
+    closeTimer.current = setTimeout(() => {
+      setOpen(false)
+      setClosing(false)
+    }, 220)
+  }
 
   if (hidden) return null
 
@@ -50,12 +63,12 @@ export default function Commentary({ hidden = false }) {
 
   return (
     <div className="commentary">
-      <div className="commentary__panel">
+      <div className={`commentary__panel${closing ? ' commentary__panel--closing' : ''}`}>
         <div className="commentary__titlebar">
           <div className="traffic-lights">
             <button
               className="tl tl--red"
-              onClick={() => setOpen(false)}
+              onClick={handleClose}
               aria-label="Close commentary"
               type="button"
             />
@@ -65,7 +78,7 @@ export default function Commentary({ hidden = false }) {
           <span className="commentary__filename">{active.file}</span>
           <button
             className="commentary__close"
-            onClick={() => setOpen(false)}
+            onClick={handleClose}
             aria-label="Close commentary"
             type="button"
           >

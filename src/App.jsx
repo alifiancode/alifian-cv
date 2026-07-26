@@ -20,7 +20,7 @@ function App() {
     <div className="app">
       <AnnouncementBar hidden={sidebarOpen} />
       <ScrollProgress />
-      <Navbar onToggleSidebar={() => setSidebarOpen(v => !v)} />
+      <Navbar onToggleSidebar={() => setSidebarOpen(v => !v)} sidebarOpen={sidebarOpen} />
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <Commentary hidden={sidebarOpen} />
       <main>

@@ -1,10 +1,12 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { handleSectionLink } from '../../../utils/scrollTo'
 import './AnnouncementBar.css'
 
 export default function AnnouncementBar({ hidden = false }) {
   const [dismissed, setDismissed] = useState(false)
+  const [closing, setClosing] = useState(false)
   const barRef = useRef(null)
+  const closeTimer = useRef(null)
 
   useLayoutEffect(() => {
     const root = document.documentElement
@@ -29,6 +31,17 @@ export default function AnnouncementBar({ hidden = false }) {
     }
   }, [dismissed, hidden])
 
+  useEffect(() => () => clearTimeout(closeTimer.current), [])
+
+  function handleDismiss() {
+    setClosing(true)
+    clearTimeout(closeTimer.current)
+    closeTimer.current = setTimeout(() => {
+      setDismissed(true)
+      setClosing(false)
+    }, 200)
+  }
+
   if (hidden) return null
 
   if (dismissed) {
@@ -46,7 +59,7 @@ export default function AnnouncementBar({ hidden = false }) {
   }
 
   return (
-    <div className="announce" ref={barRef} role="region" aria-label="Job search availability">
+    <div className={`announce${closing ? ' announce--closing' : ''}`} ref={barRef} role="region" aria-label="Job search availability">
       <div className="announce__inner">
         <div className="announce__lead">
           <span className="announce__dot" aria-hidden="true" />
@@ -68,7 +81,7 @@ export default function AnnouncementBar({ hidden = false }) {
         <button
           type="button"
           className="announce__close"
-          onClick={() => setDismissed(true)}
+          onClick={handleDismiss}
           aria-label="Dismiss this message"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"

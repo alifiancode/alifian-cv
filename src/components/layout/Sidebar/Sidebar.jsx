@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { scrollToSection } from '../../../utils/scrollTo'
 import { useActiveSection } from '../../../hooks/useActiveSection'
 import Icon from '../../ui/Icon/Icon'
@@ -17,6 +17,18 @@ export default function Sidebar({ isOpen, onClose }) {
   const active = useActiveSection(SECTION_IDS)
   const [rootOpen, setRootOpen] = useState(true)
   const [srcOpen, setSrcOpen] = useState(true)
+  const [backdropVisible, setBackdropVisible] = useState(isOpen)
+  const backdropTimer = useRef(null)
+
+  useEffect(() => {
+    clearTimeout(backdropTimer.current)
+    if (isOpen) {
+      setBackdropVisible(true)
+      return
+    }
+    backdropTimer.current = setTimeout(() => setBackdropVisible(false), 240)
+    return () => clearTimeout(backdropTimer.current)
+  }, [isOpen])
 
   useEffect(() => {
     if (!isOpen) return
@@ -32,7 +44,13 @@ export default function Sidebar({ isOpen, onClose }) {
 
   return (
     <>
-      {isOpen && <div className="sidebar__backdrop" onClick={onClose} aria-hidden="true" />}
+      {backdropVisible && (
+        <div
+          className={`sidebar__backdrop${isOpen ? '' : ' sidebar__backdrop--closing'}`}
+          onClick={onClose}
+          aria-hidden="true"
+        />
+      )}
 
       <aside className={`sidebar${isOpen ? ' sidebar--open' : ''}`} aria-hidden={!isOpen}>
         <div className="sidebar__header">
@@ -59,13 +77,13 @@ export default function Sidebar({ isOpen, onClose }) {
             <span>ALIFIAN-PORTFOLIO</span>
           </button>
 
-          {rootOpen && (
-            <>
+          <div className={`sidebar__collapse${rootOpen ? ' sidebar__collapse--open' : ''}`}>
+            <div className="sidebar__collapse-inner">
               <button
                 className="sidebar__row sidebar__row--nested"
                 onClick={() => setSrcOpen((v) => !v)}
                 type="button"
-                tabIndex={isOpen ? 0 : -1}
+                tabIndex={isOpen && rootOpen ? 0 : -1}
                 aria-expanded={srcOpen}
               >
                 <Icon name="chevron-right" className={`sidebar__chevron${srcOpen ? ' sidebar__chevron--open' : ''}`} />
@@ -73,21 +91,25 @@ export default function Sidebar({ isOpen, onClose }) {
                 <span>src</span>
               </button>
 
-              {srcOpen && SECTIONS.map(({ id, label }) => (
-                <button
-                  key={id}
-                  className={`sidebar__file${active === id ? ' sidebar__file--active' : ''}`}
-                  onClick={() => handleSelect(id)}
-                  type="button"
-                  tabIndex={isOpen ? 0 : -1}
-                >
-                  <Icon name="file" className="sidebar__icon" />
-                  <span>{label}</span>
-                  {active === id && <span className="sidebar__file-dot" aria-hidden="true" />}
-                </button>
-              ))}
-            </>
-          )}
+              <div className={`sidebar__collapse${srcOpen ? ' sidebar__collapse--open' : ''}`}>
+                <div className="sidebar__collapse-inner">
+                  {SECTIONS.map(({ id, label }) => (
+                    <button
+                      key={id}
+                      className={`sidebar__file${active === id ? ' sidebar__file--active' : ''}`}
+                      onClick={() => handleSelect(id)}
+                      type="button"
+                      tabIndex={isOpen && rootOpen && srcOpen ? 0 : -1}
+                    >
+                      <Icon name="file" className="sidebar__icon" />
+                      <span>{label}</span>
+                      {active === id && <span className="sidebar__file-dot" aria-hidden="true" />}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="sidebar__footer">

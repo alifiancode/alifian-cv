@@ -25,6 +25,11 @@
   cursor: pointer;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   transition: all 0.2s var(--ease);
+  animation: commentaryToggleIn 0.24s var(--ease);
+}
+@keyframes commentaryToggleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
 }
 .commentary__toggle:hover {
   border-color: var(--accent);
@@ -73,6 +78,14 @@
 @keyframes commentaryIn {
   from { opacity: 0; transform: translateY(16px) scale(0.97); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.commentary__panel--closing {
+  animation: commentaryOut 0.2s var(--ease) forwards;
+}
+@keyframes commentaryOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(10px) scale(0.97); }
 }
 
 .commentary__titlebar {
@@ -290,5 +303,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .commentary__panel { animation: none; }
+  .commentary__panel,
+  .commentary__panel--closing,
+  .commentary__toggle {
+    animation: none;
+  }
 }

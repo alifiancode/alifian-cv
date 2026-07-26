@@ -3,7 +3,7 @@ import { config } from '../../../data/config'
 import Icon from '../../ui/Icon/Icon'
 import './Navbar.css'
 
-export default function Navbar({ onToggleSidebar }) {
+export default function Navbar({ onToggleSidebar, sidebarOpen = false }) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -16,13 +16,18 @@ export default function Navbar({ onToggleSidebar }) {
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="navbar__titlebar">
         <button
-          className="navbar__toggle"
+          className={`navbar__toggle${sidebarOpen ? ' navbar__toggle--active' : ''}`}
           onClick={onToggleSidebar}
-          aria-label="Toggle file explorer"
+          aria-label={sidebarOpen ? 'Close file explorer' : 'Open file explorer'}
+          aria-expanded={sidebarOpen}
           type="button"
         >
-          <Icon name="menu" />
-          <span>Menu</span>
+          <span className="navbar__burger" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span className="navbar__toggle-label">Menu</span>
         </button>
 
         <div className="traffic-lights">
