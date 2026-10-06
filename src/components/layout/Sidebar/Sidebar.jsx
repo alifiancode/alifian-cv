@@ -8,6 +8,7 @@ const SECTIONS = [
   { id: 'hero', label: 'index.jsx' },
   { id: 'about', label: 'about.jsx' },
   { id: 'skills', label: 'skills.jsx' },
+  { id: 'games', label: 'games.jsx' },
   { id: 'certificates', label: 'certificates.jsx' },
   { id: 'contact', label: 'contact.jsx' },
 ]

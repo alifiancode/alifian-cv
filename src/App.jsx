@@ -6,6 +6,7 @@ import Footer from './components/layout/Footer/Footer'
 import Hero from './components/sections/Hero/Hero'
 import About from './components/sections/About/About'
 import Skills from './components/sections/Skills/Skills'
+import Games from './components/sections/Games/Games'
 import ProfessionalCerts from './components/sections/ProfessionalCerts/ProfessionalCerts'
 import SkillCerts from './components/sections/SkillCerts/SkillCerts'
 import Contact from './components/sections/Contact/Contact'
@@ -28,6 +29,7 @@ function App() {
         <Marquee />
         <About />
         <Skills />
+        <Games />
         <ProfessionalCerts />
         <SkillCerts />
         <Contact />
