@@ -106,4 +106,9 @@ export const skillCerts = [
     date: 'June 2026', pdfFile: 'mimo-certificates-249.pdf',
     explain: 'A hands-on course on building real games from scratch, covering 2D and 3D worlds, single-player and multiplayer mechanics, using modern AI-assisted coding workflows.',
   },
+  {
+    id: 9, name: 'Game Development', icon: 'gamepad', color: '#C792EA', ext: '.game',
+    date: 'September 2026', pdfFile: 'mimo-certificates-262.pdf',
+    explain: 'Game development is the craft of turning code into something playable. This course covers the essentials of building a game: HTML for structure, CSS techniques for styling the page, and core JavaScript concepts applied to creating the game itself. It is the follow-up to Vibe Coding Your Game.',
+  },
 ]

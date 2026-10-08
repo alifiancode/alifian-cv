@@ -37,7 +37,11 @@ export default function CertModal({
 
   const pdfUrl = `${import.meta.env.BASE_URL}certificates/${cert.pdfFile}`
   const pdfLoaded = loadedPdfUrl === pdfUrl
-  const downloadName = `Alifian-Putra-Wijaya-${cert.name.replace(/\s+/g, '-')}-Certificate.pdf`
+  const noun = cert.noun ?? 'certificate'
+  const nounTitle = noun.charAt(0).toUpperCase() + noun.slice(1)
+  const label = cert.label ?? `${cert.name} Certificate`
+  const metaText = cert.metaText ?? `Mimo Certificate · ${cert.date}`
+  const downloadName = cert.downloadName ?? `Alifian-Putra-Wijaya-${cert.name.replace(/\s+/g, '-')}-Certificate.pdf`
 
   const handleClose = useCallback(() => {
     setClosing(true)
@@ -113,7 +117,7 @@ export default function CertModal({
       onClick={handleClose}
       role="dialog"
       aria-modal="true"
-      aria-label={`${cert.name} Certificate`}
+      aria-label={label}
     >
       <div
         ref={modalRef}
@@ -126,8 +130,8 @@ export default function CertModal({
       >
         <span className="sr-only" aria-live="polite">
           {total > 1
-            ? `Viewing ${cert.name}${cert.ext} certificate, ${position} of ${total}`
-            : `Viewing ${cert.name}${cert.ext} certificate`}
+            ? `Viewing ${cert.name}${cert.ext} ${noun}, ${position} of ${total}`
+            : `Viewing ${cert.name}${cert.ext} ${noun}`}
         </span>
 
         <div className="cm__titlebar" ref={titlebarRef}>
@@ -150,7 +154,7 @@ export default function CertModal({
               className="cm__nav-btn cm__nav-btn--prev"
               onClick={handlePrev}
               disabled={!hasPrev}
-              aria-label="View previous certificate"
+              aria-label={`View previous ${noun}`}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -166,7 +170,7 @@ export default function CertModal({
               className="cm__nav-btn cm__nav-btn--next"
               onClick={handleNext}
               disabled={!hasNext}
-              aria-label="View next certificate"
+              aria-label={`View next ${noun}`}
             >
               <span>Next</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -187,7 +191,7 @@ export default function CertModal({
           />
           <div className="cm__explain-content">
             <p className="cm__explain-label">
-              <span className="syn-punct">/**</span> what is {cert.name}<span className="syn-punct">?</span>
+              <span className="syn-punct">$</span> what is {cert.name}<span className="syn-punct">?</span>
             </p>
             <p className="cm__explain-text" aria-label={cert.explain}>
               {explainDisplay}
@@ -197,7 +201,7 @@ export default function CertModal({
         </div>
 
         <div className="cm__toolbar">
-          <span className="cm__meta cm__fade" key={cert.pdfFile}>Mimo Certificate &middot; {cert.date}</span>
+          <span className="cm__meta cm__fade" key={cert.pdfFile}>{metaText}</span>
 
           <div className="cm__controls">
             <button
@@ -252,7 +256,7 @@ export default function CertModal({
               onClick={() => window.open(pdfUrl, '_blank', 'noopener,noreferrer')}
             >
               <Icon name="file" className="cm__tap-icon" />
-              <span className="cm__tap-title">Tap to view certificate</span>
+              <span className="cm__tap-title">Tap to view {noun}</span>
               <span className="cm__tap-sub">Opens {cert.name}{cert.ext} in a new tab</span>
               <span className="cm__tap-btn">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -261,7 +265,7 @@ export default function CertModal({
                   <polyline points="15 3 21 3 21 9"/>
                   <line x1="10" y1="14" x2="21" y2="3"/>
                 </svg>
-                Open Certificate
+                Open {nounTitle}
               </span>
             </button>
           ) : (
@@ -269,13 +273,13 @@ export default function CertModal({
               {!pdfLoaded && (
                 <div className="cm__loading" aria-hidden="true">
                   <span className="cm__spinner" />
-                  <span className="cm__loading-text">Loading certificate&hellip;</span>
+                  <span className="cm__loading-text">Loading {noun}&hellip;</span>
                 </div>
               )}
               <iframe
                 key={pdfUrl}
                 src={pdfUrl}
-                title={`${cert.name} Certificate`}
+                title={label}
                 className="cm__pdf"
                 onLoad={() => setLoadedPdfUrl(pdfUrl)}
                 style={{ opacity: pdfLoaded ? 1 : 0 }}

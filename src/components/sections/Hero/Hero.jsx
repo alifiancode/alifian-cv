@@ -15,7 +15,7 @@ const ROLES = [
 
 const STATS = [
   { target: 4, suffix: '', label: 'Professional\nCertificates' },
-  { target: 8, suffix: '', label: 'Skill\nCertificates' },
+  { target: 9, suffix: '', label: 'Skill\nCertificates' },
   { target: 12, suffix: '+', label: 'Technologies\nLearned' },
 ]
 
@@ -87,6 +87,14 @@ export default function Hero() {
               <polyline points="8 6 2 12 8 18" />
             </svg>
             View Certificates
+          </button>
+          <button type="button" onClick={handleSectionLink('resume')} className="btn btn--ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z" />
+              <polyline points="14 3 14 9 20 9" />
+            </svg>
+            View Resume
           </button>
           <button type="button" onClick={handleSectionLink('contact')} className="btn btn--ghost">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"

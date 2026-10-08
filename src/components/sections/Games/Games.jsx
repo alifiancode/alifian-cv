@@ -1,6 +1,8 @@
 import { games } from '../../../data/games'
 import { useReveal } from '../../../hooks/useReveal'
+import { useTypeReveal } from '../../../hooks/useTypeReveal'
 import Icon from '../../ui/Icon/Icon'
+import Mascot from '../../ui/Mascot/Mascot'
 import TypeTitle from '../../ui/TypeTitle/TypeTitle'
 import './Games.css'
 
@@ -8,6 +10,34 @@ function handleSpotlight(e) {
   const rect = e.currentTarget.getBoundingClientRect()
   e.currentTarget.style.setProperty('--mx', `${e.clientX - rect.left}px`)
   e.currentTarget.style.setProperty('--my', `${e.clientY - rect.top}px`)
+}
+
+function BitExplain({ text, title, active }) {
+  const [display, done] = useTypeReveal(text, active, 4200, 8, 30)
+
+  return (
+    <div className="game-card__explain">
+      <Mascot
+        size={54}
+        talking={active && !done}
+        floating
+        interactive
+        className="game-card__explain-mascot"
+      />
+      <div className="game-card__explain-content">
+        <p className="game-card__explain-label">
+          <span className="syn-punct">$</span> what is {title}<span className="syn-punct">?</span>
+        </p>
+        <p className="game-card__explain-text" aria-label={text}>
+          <span className="game-card__explain-ghost" aria-hidden="true">{text}</span>
+          <span className="game-card__explain-live" aria-hidden="true">
+            {display}
+            {active && !done && <span className="type-cursor" />}
+          </span>
+        </p>
+      </div>
+    </div>
+  )
 }
 
 export default function Games() {
@@ -48,6 +78,8 @@ export default function Games() {
 
                 <h3 className="game-card__title">{game.title}</h3>
                 <p className="game-card__desc">{game.description}</p>
+
+                <BitExplain text={game.explain} title={game.title} active={visible} />
 
                 <div className="game-card__meta">
                   <span className="game-card__role">{game.role}</span>

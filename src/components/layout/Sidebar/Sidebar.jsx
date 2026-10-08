@@ -10,6 +10,7 @@ const SECTIONS = [
   { id: 'skills', label: 'skills.jsx' },
   { id: 'games', label: 'games.jsx' },
   { id: 'certificates', label: 'certificates.jsx' },
+  { id: 'resume', label: 'resume.jsx' },
   { id: 'contact', label: 'contact.jsx' },
 ]
 const SECTION_IDS = SECTIONS.map((section) => section.id)
@@ -115,7 +116,7 @@ export default function Sidebar({ isOpen, onClose }) {
         </div>
 
         <div className="sidebar__footer">
-          <span className="syn-punct">//</span> click a file to jump there
+          <span className="syn-punct">$</span> click a file to jump there
         </div>
       </aside>
     </>

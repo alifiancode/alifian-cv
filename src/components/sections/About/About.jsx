@@ -49,7 +49,7 @@ export default function About() {
               <p className="about__bio">
                 Through the <strong>Mimo</strong> platform, I've earned
                 professional certifications in Front-End, Back-End, Full-Stack,
-                and Python Development, plus eight individual skill certificates.
+                and Python Development, plus nine individual skill certificates.
                 Every course I completed, I saw as one more tool added to my belt.
               </p>
               <p className="about__bio">
@@ -98,7 +98,7 @@ export default function About() {
                 <div className="about__stat-row">
                   <span className="syn-property">certificates</span>
                   <span className="syn-punct">:</span>
-                  <CountStat target={12} visible={visible} delay={90} />
+                  <CountStat target={13} visible={visible} delay={90} />
                 </div>
                 <div className="about__stat-row">
                   <span className="syn-property">professional</span>
@@ -108,7 +108,7 @@ export default function About() {
                 <div className="about__stat-row">
                   <span className="syn-property">skillBadges</span>
                   <span className="syn-punct">:</span>
-                  <CountStat target={8} visible={visible} delay={270} />
+                  <CountStat target={9} visible={visible} delay={270} />
                 </div>
                 <div className="about__stat-row">
                   <span className="syn-property">since</span>
