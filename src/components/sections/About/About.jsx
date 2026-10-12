@@ -98,7 +98,7 @@ export default function About() {
                 <div className="about__stat-row">
                   <span className="syn-property">certificates</span>
                   <span className="syn-punct">:</span>
-                  <CountStat target={13} visible={visible} delay={90} />
+                  <CountStat target={14} visible={visible} delay={90} />
                 </div>
                 <div className="about__stat-row">
                   <span className="syn-property">professional</span>
@@ -109,6 +109,11 @@ export default function About() {
                   <span className="syn-property">skillBadges</span>
                   <span className="syn-punct">:</span>
                   <CountStat target={9} visible={visible} delay={270} />
+                </div>
+                <div className="about__stat-row">
+                  <span className="syn-property">competence</span>
+                  <span className="syn-punct">:</span>
+                  <CountStat target={1} visible={visible} delay={360} />
                 </div>
                 <div className="about__stat-row">
                   <span className="syn-property">since</span>

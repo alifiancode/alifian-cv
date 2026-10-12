@@ -9,6 +9,7 @@ import Skills from './components/sections/Skills/Skills'
 import Games from './components/sections/Games/Games'
 import ProfessionalCerts from './components/sections/ProfessionalCerts/ProfessionalCerts'
 import SkillCerts from './components/sections/SkillCerts/SkillCerts'
+import CompetenceCert from './components/sections/CompetenceCert/CompetenceCert'
 import Resume from './components/sections/Resume/Resume'
 import Contact from './components/sections/Contact/Contact'
 import Marquee from './components/effects/Marquee/Marquee'
@@ -33,6 +34,7 @@ function App() {
         <Games />
         <ProfessionalCerts />
         <SkillCerts />
+        <CompetenceCert />
         <Resume />
         <Contact />
       </main>

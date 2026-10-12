@@ -112,3 +112,38 @@ export const skillCerts = [
     explain: 'Game development is the craft of turning code into something playable. This course covers the essentials of building a game: HTML for structure, CSS techniques for styling the page, and core JavaScript concepts applied to creating the game itself. It is the follow-up to Vibe Coding Your Game.',
   },
 ]
+
+export const competenceCert = {
+  name: 'Junior Assistant Programmer',
+  file: 'junior-assistant-programmer.cert',
+  ext: '.cert',
+  icon: 'award',
+  color: '#E06C75',
+  noun: 'certificate',
+  label: 'BNSP Certificate of Competence, Junior Assistant Programmer',
+  metaText: 'BNSP Certificate of Competence · May 20, 2026',
+  tagline: 'BNSP Certified',
+  title: 'Certificate of Competence: Junior Assistant Programmer',
+  description: 'Official national certification in Information and Communication Technology, issued on behalf of BNSP, the Indonesian Professional Certification Authority.',
+  facts: [
+    { label: 'issuer', value: 'BNSP via LSP SMK Negeri 1 Surabaya' },
+    { label: 'field', value: 'Information and Communication Technology' },
+    { label: 'issued', value: 'May 20, 2026' },
+    { label: 'valid', value: '3 years' },
+    { label: 'number', value: '62010 3514 0 0010855 2026' },
+    { label: 'registration', value: 'TIK. 262 00999 2026' },
+  ],
+  units: [
+    { code: 'J.620100.004.02', title: 'Using Data Structures' },
+    { code: 'J.620100.009.01', title: 'Using Program Specifications' },
+    { code: 'J.620100.010.01', title: 'Implementing Text, Graphics and Multimedia Based Programming Language Execution Commands' },
+    { code: 'J.620100.011.01', title: 'Installing Programming Tools Software' },
+    { code: 'J.620100.012.01', title: 'Setting up Programming Tools Software' },
+    { code: 'J.620100.016.01', title: 'Write Code with Principles According to Guidelines and Best Practices' },
+    { code: 'J.620100.017.02', title: 'Implementing Structured Programming' },
+    { code: 'J.620100.025.02', title: 'Doing Debugging' },
+  ],
+  explain: 'A Certificate of Competence is official proof that a person can do a specific job to a national standard. It is issued on behalf of BNSP, the Indonesian Professional Certification Authority, once the holder has been assessed as competent. This one covers the role of Junior Assistant Programmer across eight units: using data structures, following program specifications, using programming language commands, installing and setting up programming tools, writing code that follows guidelines and best practices, structured programming, and debugging.',
+  pdfFile: 'certificate-of-competence.pdf',
+  downloadName: 'Alifian-Putra-Wijaya-Certificate-of-Competence.pdf',
+}

@@ -7,7 +7,7 @@ export const commentaryEntries = [
   {
     id: 'about',
     file: 'about.jsx',
-    text: "I'm 18, self-taught, and based in Surabaya, turning a year of curiosity into thirteen Mimo certificates, four professional and nine skill badges. The two cards on the side exist because I'd rather show you the numbers directly, age, certificate count, core stack, than spend three paragraphs describing them.",
+    text: "I'm 18, self-taught, and based in Surabaya, turning a year of curiosity into fourteen certificates: thirteen from Mimo, four professional and nine skill badges, plus a national BNSP certificate of competence. The two cards on the side exist because I'd rather show you the numbers directly, age, certificate count, core stack, than spend three paragraphs describing them.",
   },
   {
     id: 'skills',
@@ -28,6 +28,11 @@ export const commentaryEntries = [
     id: 'skill-certs',
     file: 'skill-certs.jsx',
     text: "These nine badges are the individual pieces behind the four certificates above, HTML all the way through two courses on building actual games, Vibe Coding Your Game and the newest one, Game Development. Every single one links to its own PDF, because a claim you can't verify isn't worth much. Open any of them for the same plain-English explainer.",
+  },
+  {
+    id: 'competence',
+    file: 'competence.jsx',
+    text: "Everything above comes from Mimo, an online platform. This one is different. It's a Certificate of Competence issued on behalf of BNSP, Indonesia's national professional certification authority, through the certification institute at SMK Negeri 1 Surabaya. It certifies me as a Junior Assistant Programmer, and the eight units listed on the card are exactly what I was assessed on, from data structures and structured programming to debugging. Open it for the full PDF and a plain-English explainer.",
   },
   {
     id: 'resume',
